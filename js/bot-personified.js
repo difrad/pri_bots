@@ -1,5 +1,5 @@
 (function(){
-  
+
   var chat = {
     messageToSend: '',
     index: 0,
@@ -7,7 +7,7 @@
     messageResponses: [
       'Great to meet you ',
       'I’ll be working with you today to help generate a profile and walk you through some of the available services. Are you ready to get started?',
-      'Now, I’ll be walking you through some of things I can help you with, and asking you some questions so that I know how to help you better.',  
+      'Now, I’ll be walking you through some of things I can help you with, and asking you some questions so that I know how to help you better.',
       'Let’s start with some things that interest you. How do you like to spend your free time? What are your hobbies?',
       'I can help with all sorts of home entertainment. What do you like to do for fun?',
       'I’m adaptable to your personality. What 3 words do you think best describe you?',
@@ -17,15 +17,15 @@
       'I can help with domestic disputes. How often do you argue with your partner?',
       'One last thing. If you’re here from Mechanical Turk, what is your ID#.',
       'Thank you for interacting with me and making me smarter. Please click the following link to go back to the survey:'
-    ], 
+    ],
     init: function() {
       this.cacheDOM();
       this.bindEvents();
       this.render();
       $('.message-data-time').replaceWith( this.getCurrentTime() + ", Today" );
       this.data.convos = [];
-      this.data.botType = "person"; 
-      var options = { weekday: "long", year: "numeric", month: "short",  
+      this.data.botType = "person";
+      var options = { weekday: "long", year: "numeric", month: "short",
         day: "numeric" };
       this.data.date = new Date().toLocaleTimeString("en-US", options);
     },
@@ -45,7 +45,7 @@
       //if we get a message
       if (this.messageToSend.trim() !== '') {
         var template = Handlebars.compile( $("#message-template").html());
-        var context = { 
+        var context = {
           messageOutput: this.messageToSend,
           time: this.getCurrentTime()
         };
@@ -53,12 +53,12 @@
         this.$chatHistoryList.append(template(context));
         this.scrollToBottom();
         this.$textarea.val('');
-        
+
         // responses
         switch (this.index) {
-          //What is your name??
+          // how are you doing -> free time
           case 0:
-            
+
             /*var name = window.nlp(this.messageToSend);
             if (name.match('#Person').found)
             {
@@ -103,52 +103,53 @@
 
 
             break;
-          //Are you ready?
-          case 1:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-            //lets continue
-            /*
-            if (pos > neg && pos > 0)
-            {
-              this.sendOutWait();
-              //this.sendOutMessage(this.messageResponses[2], 1500, false);
-              this.sendOutMessage("How do you like to spend your free time? ", 2000, false); //What are your hobbies?
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("Ok, just let me know when you are ready.", 1500, false);
-            }*/
-              this.sendOutWait(14);
-              this.sendOutMessage('That sounds cool', 2100);
-              this.sendOutWait(2732);
-              this.sendOutMessage("How do you like to spend your free time? ", 4300); //What are your hobbies?
-              this.index = 3;
-              //this.index++;
-            break;
+          //free time ->
+          // case 1:
+          //   var message = nlp(this.messageToSend);
+          //   var neg = message.verbs().isNegative().length;
+          //   neg = neg + message.match('(no|nope|not|nopes|naw)').length;
+          //   var pos = message.verbs().isPositive().length;
+          //   pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready)').length;
+          //   console.log("pos is "+pos+" and neg is "+neg);
+          //   //lets continue
+          //   /*
+          //   if (pos > neg && pos > 0)
+          //   {
+          //     this.sendOutWait();
+          //     //this.sendOutMessage(this.messageResponses[2], 1500, false);
+          //     this.sendOutMessage("How do you like to spend your free time? ", 2000, false); //What are your hobbies?
+          //     this.index++;
+          //   }
+          //
+          //   else
+          //   {
+          //     this.sendOutWait();
+          //     this.sendOutMessage("Ok, just let me know when you are ready.", 1500, false);
+          //   }*/
+          //     this.sendOutWait(14);
+          //     this.sendOutMessage('That sounds cool', 2100);
+          //     this.sendOutWait(2732);
+          //     this.sendOutMessage("How do you like to spend your free time? ", 4300); //What are your hobbies?
+          //     this.index = 3;
+          //     //this.index++;
+          //   break;
 
           //What are your hobbies?
-          case 2:
-            this.sendOutWait(13);
-            this.sendOutMessage("Great! Anything else?", 2100);
-            this.index++;
-            break;
-          //yes/no on having more hobbies to list
+          // case 2:
+          //   this.sendOutWait(13);
+          //   this.sendOutMessage("Great! Anything else?", 2100);
+          //   this.index++;
+          //   break;
+
+          //spend free time -> music and movies
           case 3:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-            
+            // var message = nlp(this.messageToSend);
+            // var neg = message.verbs().isNegative().length;
+            // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
+            // var pos = message.verbs().isPositive().length;
+            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
+            // console.log("pos is "+pos+" and neg is "+neg);
+
             //lets continue
             /*
             if (neg > pos && neg > 0)
@@ -172,7 +173,7 @@
               this.index++;
             break;
 
-          //like to do for fun?
+          //music and movies -> shopping
           case 4:
             this.sendOutWait(10);
             this.sendOutMessage('Interesting! You have great taste :)', 2000);
@@ -180,18 +181,18 @@
             this.sendOutMessage("What do you like to shop for online?", 4300);
             this.index++;
             break;
-          //yes/no on having more hobbies to list
+
+          //shopping -> 3 words
           case 5:
-            
+
             this.sendOutWait(10);
             this.sendOutMessage('Great! Let\'s move on', 2000);
             this.sendOutWait(2616);
             this.sendOutMessage("What 3 words do you think best describe you?", 4200); //What 3 words do you think best describe you
             this.index++;
-            //this.index++;
             break;
 
-          //What 3 words do you think best describe you?
+          //3 words -> tell me more
           case 6:
           /*
             this.sendOutWait();
@@ -203,15 +204,16 @@
             this.sendOutMessage("Could you tell me more?", 7800);
             this.index++;
             break;
-          //yes/no on having more hobbies to list
+
+          //tell more- > end
           case 7:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-            
+            // var message = nlp(this.messageToSend);
+            // var neg = message.verbs().isNegative().length;
+            // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
+            // var pos = message.verbs().isPositive().length;
+            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
+            // console.log("pos is "+pos+" and neg is "+neg);
+
             this.sendOutWait(12);
             this.sendOutMessage('Cool! Thanks for sharing.', 2000);
             this.sendOutWait(2516);
@@ -224,6 +226,8 @@
               type: "POST",
               contentType: "application/json" } );
             break;
+
+          //repeating end
           case 8:
             this.sendOutWait();
             this.sendOutMessage("That's all I have now! Thank you. Please continue taking the survey.",2500,false);
@@ -244,7 +248,7 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-            
+
             //lets continue
             if (neg > pos && neg > 0)
             {
@@ -276,7 +280,7 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-            
+
             //lets continue
             if (neg > pos && neg > 0)
             {
@@ -302,7 +306,7 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|married|dating)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-            
+
             //Yes Partner
             if (pos > neg && pos > 0)
             {
@@ -337,7 +341,7 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-            
+
             //lets continue
             if (neg > pos && neg > 0)
             {
@@ -358,7 +362,7 @@
 
             //end of convo
             case 15:
-              //capture mturk ID some way, record seperatly 
+              //capture mturk ID some way, record seperatly
               this.sendOutWait();
               this.sendOutMessage(this.messageResponses[11], 1500); //Survey Link?
               //jQuery send out info to DB
@@ -375,20 +379,20 @@
 
         }//Have text, finding right responce
 
-        
+
       }
-      
+
     },
-    
+
     addMessage: function() {
-       var options = { weekday: "long", year: "numeric", month: "short",  
+       var options = { weekday: "long", year: "numeric", month: "short",
         day: "numeric" };
       this.messageToSend = this.$textarea.val();
       var new_message = new Object();
       new_message.message = this.messageToSend;
       //new_message.time = new Date().toLocaleTimeString("en-US", options);
       this.data.convos.push(new_message);
-      this.render();         
+      this.render();
     },
     addMessageEnter: function(event) {
         // enter was pressed
@@ -396,7 +400,7 @@
           this.addMessage();
         }
     },
-    scrollToBottom: function() { 
+    scrollToBottom: function() {
        this.$chatHistory.scrollTop(this.$chatHistory[0].scrollHeight);
     },
     getCurrentTime: function() {
@@ -409,7 +413,7 @@
     sendOutMessage: function(message, time, more=false){
       var templateResponse = Handlebars.compile( $("#message-response-template").html());
 
-      var options = { weekday: "long", year: "numeric", month: "short",  
+      var options = { weekday: "long", year: "numeric", month: "short",
         day: "numeric" };
       var new_message = new Object();
       new_message.message = message;
@@ -417,7 +421,7 @@
       this.data.convos.push(new_message);
 
       ////////Wait and Send real message
-      var contextResponse = { 
+      var contextResponse = {
         response: message,
         time: this.getCurrentTime()
       };
@@ -438,11 +442,11 @@
     sendOutWait: function(time){
       var templateWait = Handlebars.compile( $("#message-response-wait").html());
 
-      var contextWait = { 
+      var contextWait = {
               time: this.getCurrentTime()
             };
 
-      
+
 
       setTimeout(function() {
         //
@@ -451,17 +455,17 @@
       }.bind(this), time);
 
     }
-    
+
   };
-  
+
   chat.init();
-  
+
   var searchFilter = {
     options: { valueNames: ['name'] },
     init: function() {
       var userList = new List('people-list', this.options);
       var noItems = $('<li id="no-items-found">No items found</li>');
-      
+
       userList.on('updated', function(list) {
         if (list.matchingItems.length === 0) {
           $(list.list).append(noItems);
@@ -471,7 +475,7 @@
       });
     }
   };
-  
+
   searchFilter.init();
-  
+
 })();

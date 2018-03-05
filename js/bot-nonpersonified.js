@@ -38,7 +38,6 @@
       this.$textarea.on('keyup', this.addMessageEnter.bind(this));
     },
     render: function() {
-      console.log("got message");
 
       this.scrollToBottom();
       //if we get a message
@@ -56,52 +55,53 @@
         // responses
         switch (this.index) {
           //What is your name??
-          case 0:
+          // case 0:
+          //
+          //   /*var name = window.nlp(this.messageToSend);
+          //   if (name.match('#Person').found)
+          //   {
+          //     var mess = this.messageResponses[0] + name.match('#Person').out()
+          //     this.sendOutWait();
+          //     this.sendOutMessage(mess, 1500, false);
+          //     this.sendOutMessage(this.messageResponses[1], 3000, true);//Are you ready to get started?
+          //     this.index++;
+          //   }
+          //   else
+          //   {
+          //     this.sendOutWait();
+          //     this.sendOutMessage("Sorry I didn't catch your name. Can you try again?", 1500, false);
+          //   }*/
+          //   var message = nlp(this.messageToSend);
+          //   var neg = message.verbs().isNegative().length;
+          //   neg = neg + message.match('(no|nope|not|nopes|naw|bad|sad)').length;
+          //   var pos = message.verbs().isPositive().length;
+          //   pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
+          //   console.log("pos is "+pos+" and neg is "+neg);
+          //   /*
+          //   if (pos > neg && pos > 0)
+          //   {
+          //     this.sendOutWait();
+          //     //this.sendOutMessage(this.messageResponses[2], 1500, false);
+          //     this.sendOutMessage("Great to hear!", 2000); //What are your hobbies?
+          //     this.index++;
+          //   }
+          //
+          //   else
+          //   {
+          //     this.sendOutWait();
+          //     this.sendOutMessage("Sorry to hear that", 2000);
+          //     this.index++;
+          //   }*/
+          //   //
+          //   this.sendOutMessage("This is a walkthrough of the LiveWell services. You will be asked questions to improve the service to better help you.", 3500, true);
+          //   this.sendOutMessage("Are you ready to get started?", 6500, true);
+          //   this.index++;
+          //   break;
 
-            /*var name = window.nlp(this.messageToSend);
-            if (name.match('#Person').found)
-            {
-              var mess = this.messageResponses[0] + name.match('#Person').out()
-              this.sendOutWait();
-              this.sendOutMessage(mess, 1500, false);
-              this.sendOutMessage(this.messageResponses[1], 3000, true);//Are you ready to get started?
-              this.index++;
-            }
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("Sorry I didn't catch your name. Can you try again?", 1500, false);
-            }*/
-            // var message = nlp(this.messageToSend);
-            // var neg = message.verbs().isNegative().length;
-            // neg = neg + message.match('(no|nope|not|nopes|naw|bad|sad)').length;
-            // var pos = message.verbs().isPositive().length;
-            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
-            // console.log("pos is "+pos+" and neg is "+neg);
-            /*
-            if (pos > neg && pos > 0)
-            {
-              this.sendOutWait();
-              //this.sendOutMessage(this.messageResponses[2], 1500, false);
-              this.sendOutMessage("Great to hear!", 2000); //What are your hobbies?
-              this.index++;
-            }
 
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("Sorry to hear that", 2000);
-              this.index++;
-            }*/
-            //
-            // this.sendOutMessage("This is a walkthrough of the LiveWell services. You will be asked questions to improve the service to better help you.", 3500, true);
-            // this.sendOutMessage("Are you ready to get started?", 6500, true);
-            // this.index++;
             // break;
 
-
-            break;
-          //How are you feeling -> how do you spend your free time.
+          //how feeling -> spend free time
           case 1:
             // var message = nlp(this.messageToSend);
             // var neg = message.verbs().isNegative().length;
@@ -112,16 +112,16 @@
             // console.log("pos is "+pos+" and neg is "+neg);
             this.sendOutMessage("Describe how you like to spend your free time.", 2000); //What are your hobbies?
             this.index = this.index + 2;
-
             break;
 
-          //What are your hobbies? IS THIS EVER TRIGGERED?
+          //not called
           // case 2:
           //   //this.sendOutWait(10);
           //   this.sendOutMessage("Anything else?", 1500);
           //   this.index++;
           //   break;
-          //Spend free time -> music and movies
+
+          //free time -> music
           case 3:
             // var message = nlp(this.messageToSend);
             // var neg = message.verbs().isNegative().length;
@@ -133,7 +133,7 @@
             this.index++;
             break;
 
-          //music and movies -> shop online
+          //music and movies -> shopping
           case 4:
             //this.sendOutWait(5);
             //this.sendOutMessage('Those are great!', 2123);
@@ -142,7 +142,7 @@
             this.index++;
             break;
 
-          //shop online -> words to describe self
+          //shopping -> 3 words
           case 5:
             // var message = nlp(this.messageToSend);
             // var neg = message.verbs().isNegative().length;
@@ -156,25 +156,25 @@
             this.index = 7;
             break;
 
-          //3 words -> ask for more detail (regardless of # of words)
+          //3 words -> more detail
           case 7:
             //this.sendOutWait(5);
             //this.sendOutMessage('That\'s an interesting way to describe yourself.', 3500);
             //this.sendOutWait(4172);
-            this.sendOutMessage('Could you provide more details?', 1712);
-            this.index++;
-            break
+          this.sendOutMessage('Could you provide more details?', 1712);
+          this.index++;
+          break;
 
-          //more detail -> bedtime
+          //detail -> bed
           case 8:
             //this.sendOutWait(5);
             //this.sendOutMessage('Thanks for sharing!', 3500);
             //this.sendOutWait(4172);
             this.sendOutMessage('What time do you usually go to bed and wake up?', 1712);
             this.index++;
-            break
+            break;
 
-          //bedtime -> stress
+          //bed -> stress
           case 9:
             //this.sendOutWait(5);
             //this.sendOutMessage('Cool!', 2121);
@@ -192,7 +192,7 @@
             this.index++;
             break;
 
-          //AMT ID -> end and send info
+          //AMT ID -> end
           case 11:
               //this.sendOutWait();
               //this.sendOutMessage('Ok!', 2000);
@@ -204,10 +204,11 @@
                 contentType: "application/json" } );
             break;
 
-          //repeat as necessary
+          //repeating end
           case 12:
             //this.sendOutWait();
             this.sendOutMessage("Thank you. The conversation is complete. Please continue taking the survey.",2500);
+
         }
       }
     },
@@ -285,9 +286,7 @@
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
       }.bind(this), time);
-
     }
-
   };
 
   chat.init();
