@@ -138,7 +138,7 @@
             //this.sendOutWait(5);
             //this.sendOutMessage('Those are great!', 2123);
             //this.sendOutWait(2678);
-            this.sendOutMessage("What kinds of things do you shop online for?", 2135);
+            this.sendOutMessage("Describe the kinds of things you like to shop for online.", 2135);
             this.index++;
             break;
 
@@ -161,7 +161,7 @@
             //this.sendOutWait(5);
             //this.sendOutMessage('That\'s an interesting way to describe yourself.', 3500);
             //this.sendOutWait(4172);
-          this.sendOutMessage('Could you provide more details?', 1712);
+          this.sendOutMessage('Explain your choice of words above.', 1712);
           this.index++;
           break;
 
@@ -170,7 +170,7 @@
             //this.sendOutWait(5);
             //this.sendOutMessage('Thanks for sharing!', 3500);
             //this.sendOutWait(4172);
-            this.sendOutMessage('What time do you usually go to bed and wake up?', 1712);
+            this.sendOutMessage('Describe what time you usually go to bed and wake up.', 1712);
             this.index++;
             break;
 
@@ -188,7 +188,7 @@
             //this.sendOutWait(5);
             //this.sendOutMessage('Thanks for sharing that with me.', 2121);
             //this.sendOutWait(4889);
-            this.sendOutMessage("One last thing. If you’re here from Mechanical Turk, what is your ID#?", 1821); //What 3 words do you think best describe you
+            this.sendOutMessage("Enter your Mechanical Turk ID Number.", 1821); //What 3 words do you think best describe you
             this.index++;
             break;
 
@@ -196,7 +196,9 @@
           case 11:
               //this.sendOutWait();
               //this.sendOutMessage('Ok!', 2000);
-              this.sendOutMessage("Thank you. The conversation is complete. Please continue taking the survey.",2500,true);
+              this.sendOutMessage("Thank you.", 2500);
+              this.sendOutWait(2000);
+              this.sendOutMessage("Please continue taking the survey.",2500,true);
               this.index++;
               $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
                 data: JSON.stringify( this.data ),
@@ -207,7 +209,7 @@
           //repeating end
           case 12:
             //this.sendOutWait();
-            this.sendOutMessage("Thank you. The conversation is complete. Please continue taking the survey.",2500);
+            this.sendOutMessage("Thank you. Please continue taking the survey.",2500);
 
         }
       }

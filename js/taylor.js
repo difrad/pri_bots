@@ -167,7 +167,7 @@
           //more detail -> bed
           case 8:
             this.sendOutWait(5);
-            this.sendOutMessage('Thanks for sharing!', 3500);
+            this.sendOutMessage('Interesting!', 3500);
             this.sendOutWait(4172);
             this.sendOutMessage('What time do you usually go to bed and wake up?', 5712);
             this.index++;
@@ -206,9 +206,9 @@
 
 
             this.sendOutWait(10);
-            this.sendOutMessage('Awesome! Thanks!.', 3100);
-            this.sendOutWait(3712);
-            this.sendOutMessage("It was great chatting with you. Thanks for your time!",5812);
+            this.sendOutMessage('Thank you! It was great chatting with you.', 3100);
+            // this.sendOutWait(3712);
+            // this.sendOutMessage("It was great chatting with you. Thanks for your time!",5812);
             this.sendOutWait(6612);
             this.sendOutMessage("Please continue taking the survey.",7830);
             this.index++;
@@ -364,16 +364,8 @@
               this.sendOutWait();
               this.sendOutMessage("That's all I have now. Be sure to do the survey and check back soon!", 1500);
               */
-
-
-
-
-
-        }//Have text, finding right responce
-
-
+        }
       }
-
     },
 
     addMessage: function() {
