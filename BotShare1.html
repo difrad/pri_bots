@@ -48,10 +48,10 @@
     <div class="chat-container clearfix">
       <div class="chat">
         <div class="chat-header clearfix">
-          <img src="images/person_bot.png" height="55" />
+          <img src="images/non_person.png" height="55" />
 
           <div class="chat-about">
-            <div class="chat-with">Chat with Taylor</div>
+            <div class="chat-with">Chat with Assistant</div>
           </div>
           <i class="fa fa-star"></i>
         </div> <!-- end chat-header -->
@@ -65,11 +65,12 @@
                 <!-- <span class="message-data-name"><i class="fa fa-circle online"></i> Bob</span>
                 <span class="message-data-name"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" /> Taylor</span>
                 images/person_bot.png -->
-                <span class="message-data-name"><img src="images/person_bot.png" height="55" /> Taylor</span>
-                <span class="message-data-time">10:12 AM, Today</span> <!-- change to current date/time -->
+                <!-- <span class="message-data-name"><img src="images/non_person.png" height="55" />  Assistant</span> -->
+                <span class="message-data-name">  Assistant</span>
+                <span class="message-data-time-start">10:12 AM, Today</span> <!-- change to current date/time -->
               </div>
               <div class="message my-message">
-                Hello, my name is Taylor. How are you doing today?
+                Welcome to the home assistant service. Describe how you are doing today.
               </div>
             </li>
 
@@ -99,7 +100,7 @@
           <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
           <span class="message-data-name" >You</span> <img src="images/user.png" height="55" />
         </div>
-        <div class="message other-message float-right">
+        <div class="message other-message float-right align-right">
           {{messageOutput}}
         </div>
       </li>
@@ -108,7 +109,8 @@
     <script id="message-response-template" type="text/x-handlebars-template">
       <li>
         <div class="message-data">
-          <span class="message-data-name"><img src="images/person_bot.png" height="55" />  Taylor</span>
+          <!-- <span class="message-data-name"><img src="images/non_person.png" height="55" />  Assistant</span> -->
+          <span class="message-data-name">  Assistant</span>
           <span class="message-data-time">{{time}}, Today</span>
         </div>
         <div class="message my-message">
@@ -120,7 +122,8 @@
     <script id="message-response-wait" type="text/x-handlebars-template">
       <li>
         <div class="message-data">
-          <span class="message-data-name"><img src="images/person_bot.png" height="55" />  Taylor</span>
+          <!-- <span class="message-data-name"><img src="images/non_person.png" height="55" />  Assistant</span>-->
+          <span class="message-data-name">  Assistant</span>
           <span class="message-data-time">{{time}}, Today</span>
         </div>
         <img src="images/load.svg" alt="avatar" height="60"/>
@@ -144,7 +147,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script>
 
-  <script  src="js/bot-personified.js"></script>
+  <script  src="js/BotShare1.js"></script>
 
   </body>
 </html>
