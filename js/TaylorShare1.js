@@ -207,6 +207,8 @@
             this.sendOutMessage('Thank you! It was great chatting with you.', 3100);
             // this.sendOutWait(3712);
             // this.sendOutMessage("It was great chatting with you. Thanks for your time!",5812);
+            this.sendOutWait(5000);
+            this.sendOutMessage("I've shared your responses with my company.",5000);
             this.sendOutWait(6612);
             this.sendOutMessage("Please continue taking the survey.",7830);
             this.index++;
