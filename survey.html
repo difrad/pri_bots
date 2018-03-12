@@ -76,7 +76,7 @@
           <label>Enter your Mechanical Turk ID#.</label>
           <input type="text" name="turk" id="turk">
         </div>
-        <div class="ui submit button" id="post-btn" type='submit'>Submit</div>
+        <div class="ui primary submit button" id="post-btn" type='submit'>Submit</div>
         <div class="ui error message"></div>
       </div>
     </form>
@@ -99,7 +99,12 @@
       return indexed_array;
     };
 
-    $("#reg-form")
+    
+
+    $("#post-btn").click(function(e){   
+      e.preventDefault();
+
+      $("#reg-form")
       .form({
         fields: {
           how_today: 'empty',
@@ -115,14 +120,20 @@
         }
       })
     ;
-
-    $("#post-btn").click(function(e){   
-      e.preventDefault();
+      $("#reg-form").form('validate form');
     /*
     $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
         alert(data);
     });
     */
+
+    var
+      $form = $('.get.example form'),
+      // get all values
+      allFields = $form.form('get values')
+    ;
+    
+    console.log(allFields);
     
     if( $('#reg-form').form('is valid')) {
     // form is valid (both email and name)
