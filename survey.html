@@ -201,7 +201,8 @@
                     }, {
                       on: 'blur',
                       inline: true,
-                      onSuccess: function() {
+                      onSuccess: function(e) {
+                        e.preventDefault();
                         console.log("FORM IS VALID!!!!")
                         var $form = $("#reg-form");
                         var data = getFormData($form);
