@@ -77,6 +77,7 @@
           <input type="text" name="turk" id="turk">
         </div>
         <div class="ui submit button" id="post-btn" type='submit'>Submit</div>
+        <div class="ui error message"></div>
       </div>
     </form>
   </div>
@@ -120,18 +121,22 @@
         alert(data);
     });
     */
-    var $form = $("#reg-form");
-    var data = getFormData($form);
+    if( $('#reg-form').form('is valid')) {
+      // form is valid (both email and name)
 
-    $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
-                //data: JSON.stringify( $("#reg-form").serializeArray() ),
-                data: JSON.stringify(data),
-                type: "POST",
-                contentType: "application/json",
-                success: function(json) {
-           //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
-           $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Thank you. The conversation is complete. Please continue taking the survey</h2></div></div>" );
-        } } ); 
+      var $form = $("#reg-form");
+      var data = getFormData($form);
+
+      $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
+                  //data: JSON.stringify( $("#reg-form").serializeArray() ),
+                  data: JSON.stringify(data),
+                  type: "POST",
+                  contentType: "application/json",
+                  success: function(json) {
+             //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
+             $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Thank you. The conversation is complete. Please continue taking the survey</h2></div></div>" );
+          } } ); 
+  }
 });
 </script>
 
