@@ -125,15 +125,18 @@
     $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
         alert(data);
     });
-    */
-
+    
     var
       $form = $('.get.example form'),
       // get all values
       allFields = $form.form('get values')
     ;
+
+    */
+
     
-    console.log(allFields);
+    
+    console.log($('#reg-form').form('is valid'));
     
     if( $('#reg-form').form('is valid')) {
     // form is valid (both email and name)
