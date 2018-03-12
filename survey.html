@@ -99,13 +99,6 @@
       return indexed_array;
     };
 
-    $("#post-btn").click(function(e){   
-      e.preventDefault();
-    /*
-    $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
-        alert(data);
-    });
-    */
     $("#reg-form")
       .form({
         fields: {
@@ -122,6 +115,15 @@
         }
       })
     ;
+
+    $("#post-btn").click(function(e){   
+      e.preventDefault();
+    /*
+    $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
+        alert(data);
+    });
+    */
+    
     if( $('#reg-form').form('is valid')) {
     // form is valid (both email and name)
       console.log("FORM IS VALID!!!!")
