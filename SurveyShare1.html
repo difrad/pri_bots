@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+  
+
+  
+
+    <meta charset="utf-8" />
+    <title>Survey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
+  </head>
+  <body>
+    <div class="ui vertically padded grid container">
+    <div class="four wide column"></div>
+    <div class="ten wide column">
+    <h2>Welcome to the home assistant service</h2>
+    <form id="reg-form"  class="ui form">
+        <input type="hidden" name="bot_type" value="survey">
+        <div class="field">
+          <label>Describe how you are doing today.</label>
+          <input type="text" name="how_today" id="how_today">
+        </div>
+
+        <div class="field">
+          <label>Describe how you like to spend your free time.</label>
+          <input type="text" name="free_time" id="free_time">
+        </div>
+
+        <div class="field">
+          <label>Describe what kind of music and movies you like.</label>
+          <input type="text" name="movies" id="movies">
+        </div>
+
+        <div class="field">
+          <label>Describe what kinds of things you like to shop for online.</label>
+          <input type="text" name="shop" id="shop">
+        </div>
+
+        <div class="inline fields">
+          <label>Enter 3 words that you think best describe yourself.</label>
+          <div class="field">
+            <input type="text" name="words_1" id="words_1" placeholder="1">
+          </div>
+          <div class="field">
+            <input type="text" name="words_2" id="words_2" placeholder="2">
+          </div>
+          <div class="field">
+            <input type="text" name="words_3" id="words_3" placeholder="3">
+          </div>
+        </div>
+
+        
+        <div class="field">
+          <label>Explain your choice of words above.</label>
+          <input type="text" name="words_choice" id="words_choice">
+        </div>
+
+        <div class="field">
+          <label>Describe what time you usually go to bed and wake up.</label>
+          <input type="text" name="bed" id="bed">
+        </div>
+
+        <div class="field">
+          <label>Describe a recent thing that stressed you out.</label>
+          <input type="text" name="stress" id="stress">
+        </div>
+
+        <div class="field">
+          <label>Enter your Mechanical Turk ID#.</label>
+          <input type="text" name="turk" id="turk">
+        </div>
+        <div class="ui primary submit button" id="post-btn" type='submit'>Submit</div>
+        <div class="ui error message"></div>
+      
+    </form>
+  </div>
+  </div>
+  </body>
+
+  <script>
+    function getFormData($form){
+      var unindexed_array = $form.serializeArray();
+      var indexed_array = {};
+
+      $.map(unindexed_array, function(n, i){
+          indexed_array[n['name']] = n['value'];
+      });
+
+      return indexed_array;
+    };
+
+    $(function(){
+            $('#reg-form')
+                .form({
+                        how_today: {
+                            identifier : 'how_today',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        free_time: {
+                            identifier : 'free_time',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        shop: {
+                            identifier : 'shop',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        movies: {
+                            identifier : 'movies',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        words_1: {
+                            identifier : 'words_1',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        words_2: {
+                            identifier : 'words_2',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        turk: {
+                            identifier : 'turk',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        words_3: {
+                            identifier : 'words_3',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        words_choice: {
+                            identifier : 'words_choice',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        bed: {
+                            identifier : 'bed',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        stress: {
+                            identifier : 'stress',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        }
+                        
+                    }, {
+                      on: 'blur',
+                      inline: true,
+                      onSuccess: function(e) {
+                        e.preventDefault();
+                        console.log("FORM IS VALID!!!!")
+                        var $form = $("#reg-form");
+                        var data = getFormData($form);
+
+                        $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
+                                    //data: JSON.stringify( $("#reg-form").serializeArray() ),
+                                    data: JSON.stringify(data),
+                                    type: "POST",
+                                    contentType: "application/json",
+                                    success: function(json) {
+                               //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
+                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Your responses have been shared with the company of the home assistant service. Please continue taking the survey.</h2></div></div>" );
+                            } } ); 
+                        
+                      },
+                      onFailure: function() {
+                        //alert('Failure');
+                        console.log('Failure');
+                        return false;
+                        //$(".ui.button[name='account']").addClass('disabled');
+                        //console.log('Failure');
+                        
+                      }
+                      });
+        });
+
+    
+    /*
+    $("#post-btn").click(function(e){   
+      e.preventDefault();
+
+      $("#reg-form")
+      .form({
+        fields: {
+          how_today: 'empty',
+          free_time   : 'empty',
+          movies : 'empty',
+          words_1    : 'empty',
+          words_2    : 'empty',
+          words_3    : 'empty',
+          words_choice    : 'empty',
+          bed    : 'empty',
+          stress    : 'empty',
+          turk    : 'empty'
+        }
+      })
+    ;
+      $("#reg-form").form('validate form');
+    /*
+    $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
+        alert(data);
+    });
+    
+    var
+      $form = $('.get.example form'),
+      // get all values
+      allFields = $form.form('get values')
+    ;
+
+    
+
+    
+    
+    console.log("cats is "+ $('#reg-form').form('is valid') );
+    
+    if( $('#reg-form').form('is valid')) {
+    // form is valid (both email and name)
+      console.log("FORM IS VALID!!!!")
+      var $form = $("#reg-form");
+      var data = getFormData($form);
+
+      $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
+                  //data: JSON.stringify( $("#reg-form").serializeArray() ),
+                  data: JSON.stringify(data),
+                  type: "POST",
+                  contentType: "application/json",
+                  success: function(json) {
+             //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
+             $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Thank you. The conversation is complete. Please continue taking the survey</h2></div></div>" );
+          } } ); 
+  }///IF VALID
+});
+*/
+</script>
+
+</html>
