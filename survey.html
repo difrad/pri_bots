@@ -86,22 +86,7 @@
 
   <script>
 
-    $("#reg-form")
-      .form({
-        fields: {
-          how_today: 'empty',
-          free_time   : 'empty',
-          movies : 'empty',
-          words_1    : 'empty',
-          words_2    : 'empty',
-          words_3    : 'empty',
-          words_choice    : 'empty',
-          bed    : 'empty',
-          stress    : 'empty',
-          turk    : 'empty'
-        }
-      })
-    ;
+    
 
     function getFormData($form){
       var unindexed_array = $form.serializeArray();
@@ -121,6 +106,22 @@
         alert(data);
     });
     */
+    $("#reg-form")
+      .form({
+        fields: {
+          how_today: 'empty',
+          free_time   : 'empty',
+          movies : 'empty',
+          words_1    : 'empty',
+          words_2    : 'empty',
+          words_3    : 'empty',
+          words_choice    : 'empty',
+          bed    : 'empty',
+          stress    : 'empty',
+          turk    : 'empty'
+        }
+      })
+    ;
     if( $('#reg-form').form('is valid')) {
     // form is valid (both email and name)
       console.log("FORM IS VALID!!!!")
