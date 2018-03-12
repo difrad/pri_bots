@@ -46,13 +46,13 @@
         <div class="inline fields">
           <label>Enter 3 words that you think best describe yourself.</label>
           <div class="field">
-            <input type="text" name="words_1" id="shop" placeholder="1">
+            <input type="text" name="words_1" id="words_1" placeholder="1">
           </div>
           <div class="field">
-            <input type="text" name="words_2" id="shop" placeholder="2">
+            <input type="text" name="words_2" id="words_2" placeholder="2">
           </div>
           <div class="field">
-            <input type="text" name="words_3" id="shop" placeholder="3">
+            <input type="text" name="words_3" id="words_3" placeholder="3">
           </div>
         </div>
 
@@ -84,6 +84,24 @@
   </body>
 
   <script>
+
+    $("#reg-form")
+      .form({
+        fields: {
+          how_today: 'empty',
+          free_time   : 'empty',
+          movies : 'empty',
+          words_1    : 'empty',
+          words_2    : 'empty',
+          words_3    : 'empty',
+          words_choice    : 'empty',
+          bed    : 'empty',
+          stress    : 'empty',
+          turk    : 'empty'
+        }
+      })
+    ;
+
     function getFormData($form){
       var unindexed_array = $form.serializeArray();
       var indexed_array = {};
