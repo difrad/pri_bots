@@ -84,9 +84,6 @@
   </body>
 
   <script>
-
-    
-
     function getFormData($form){
       var unindexed_array = $form.serializeArray();
       var indexed_array = {};
@@ -98,8 +95,122 @@
       return indexed_array;
     };
 
-    
+    $(function(){
+            $('#main')
+                .form({
+                        how_today: {
+                            identifier : 'how_today',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        free_time: {
+                            identifier : 'free_time',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        movies: {
+                            identifier : 'movies',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        words_1: {
+                            identifier : 'words_1',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        words_2: {
+                            identifier : 'words_2',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        turk: {
+                            identifier : 'turk',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        words_3: {
+                            identifier : 'words_3',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        words_choice: {
+                            identifier : 'words_choice',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        bed: {
+                            identifier : 'bed',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
+                        stress: {
+                            identifier : 'stress',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        }
+                        
+                    }, {
+                      on: 'blur',
+                      inline: true,
+                      onSuccess: function() {
+                        console.log("FORM IS VALID!!!!")
+                        var $form = $("#reg-form");
+                        var data = getFormData($form);
 
+                        $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
+                                    //data: JSON.stringify( $("#reg-form").serializeArray() ),
+                                    data: JSON.stringify(data),
+                                    type: "POST",
+                                    contentType: "application/json",
+                                    success: function(json) {
+                               //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
+                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Thank you. The conversation is complete. Please continue taking the survey</h2></div></div>" );
+                            } } ); 
+                        
+                      },
+                      onFailure: function() {
+                        //alert('Failure');
+                        console.log('Failure');
+                        return false;
+                        //$(".ui.button[name='account']").addClass('disabled');
+                        //console.log('Failure');
+                        
+                      }
+                      });
+        });
+
+    
+    /*
     $("#post-btn").click(function(e){   
       e.preventDefault();
 
@@ -131,7 +242,7 @@
       allFields = $form.form('get values')
     ;
 
-    */
+    
 
     
     
@@ -152,8 +263,9 @@
              //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
              $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Thank you. The conversation is complete. Please continue taking the survey</h2></div></div>" );
           } } ); 
-  }
+  }///IF VALID
 });
+*/
 </script>
 
 </html>
