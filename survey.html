@@ -114,6 +114,14 @@
                                 }
                             ]
                         },
+                        shop: {
+                            identifier : 'shop',
+                            rules: [
+                                {
+                                    type : 'empty'
+                                }
+                            ]
+                        },
                         movies: {
                             identifier : 'movies',
                             rules: [
@@ -181,7 +189,7 @@
                         
                     }, {
                       on: 'blur',
-                      inline: true,
+                      inline: false,
                       onSuccess: function() {
                         console.log("FORM IS VALID!!!!")
                         var $form = $("#reg-form");
