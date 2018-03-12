@@ -20,7 +20,7 @@
     <div class="four wide column"></div>
     <div class="ten wide column">
     <h2>Welcome to the home assistant service</h2>
-    <form id="cyber_post" action="https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX" method="POST" class="ui form">
+    <form id="reg-form"  class="ui form">
       <div class="ui form">
         <input type="hidden" name="bot_type" id="survey">
         <div class="field">
@@ -76,11 +76,19 @@
           <label>Enter your Mechanical Turk ID#.</label>
           <input type="text" name="turk" id="turk">
         </div>
-        <div class="ui submit button" type='submit'>Submit</div>
+        <div class="ui submit button" id="post-btn" type='submit'>Submit</div>
       </div>
     </form>
   </div>
   </div>
   </body>
+
+  <script>
+    $("#post-btn").click(function(){        
+    $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
+        alert(data);
+    });
+});
+</script>
 
 </html>
