@@ -84,10 +84,17 @@
   </body>
 
   <script>
-    $("#post-btn").click(function(){        
+    $("#post-btn").click(function(){   
+
+    /*
     $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
         alert(data);
     });
+    */
+    $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
+                data: JSON.stringify( $("#reg-form").serialize() ),
+                type: "POST",
+                contentType: "application/json" } ); 
 });
 </script>
 
