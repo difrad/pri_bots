@@ -21,7 +21,6 @@
     <div class="ten wide column">
     <h2>Welcome to the home assistant service</h2>
     <form id="reg-form"  class="ui form">
-      <div class="ui form">
         <input type="hidden" name="bot_type" value="survey">
         <div class="field">
           <label>Describe how you are doing today.</label>
@@ -78,7 +77,7 @@
         </div>
         <div class="ui primary submit button" id="post-btn" type='submit'>Submit</div>
         <div class="ui error message"></div>
-      </div>
+      
     </form>
   </div>
   </div>
@@ -136,7 +135,7 @@
 
     
     
-    console.log($('#reg-form').form('is valid'));
+    console.log("cats is "+ $('#reg-form').form('is valid') );
     
     if( $('#reg-form').form('is valid')) {
     // form is valid (both email and name)
