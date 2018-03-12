@@ -102,7 +102,8 @@
                             identifier : 'how_today',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -110,7 +111,8 @@
                             identifier : 'free_time',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -118,7 +120,8 @@
                             identifier : 'shop',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -126,7 +129,8 @@
                             identifier : 'movies',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -134,7 +138,8 @@
                             identifier : 'words_1',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -142,7 +147,8 @@
                             identifier : 'words_2',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -150,7 +156,8 @@
                             identifier : 'turk',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -158,7 +165,8 @@
                             identifier : 'words_3',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -166,7 +174,8 @@
                             identifier : 'words_choice',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -174,7 +183,8 @@
                             identifier : 'bed',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         },
@@ -182,14 +192,15 @@
                             identifier : 'stress',
                             rules: [
                                 {
-                                    type : 'empty'
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
                                 }
                             ]
                         }
                         
                     }, {
                       on: 'blur',
-                      inline: false,
+                      inline: true,
                       onSuccess: function() {
                         console.log("FORM IS VALID!!!!")
                         var $form = $("#reg-form");
