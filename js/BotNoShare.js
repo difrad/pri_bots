@@ -198,7 +198,7 @@
               //this.sendOutMessage('Ok!', 2000);
               this.sendOutMessage("Thank you.", 2500);
               //this.sendOutWait(2000);
-              this.sendOutMessage("Please continue taking the survey.",2500,true);
+              this.sendOutMessage("Please continue taking the survey.",3800,true);
               this.index++;
               $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
                 data: JSON.stringify( this.data ),
