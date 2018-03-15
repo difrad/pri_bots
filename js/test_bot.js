@@ -413,7 +413,7 @@
         response: message,
         time: this.getCurrentTime()
       };
-
+      $('#message-to-send').attr('disabled','disabled');
       setTimeout(function() {
         //
         if (more)
@@ -425,6 +425,7 @@
           $( "li" ).last().replaceWith(templateResponse(contextResponse));
         }
         this.scrollToBottom();
+        $('#message-to-send').removeAttr('disabled');
       }.bind(this), time);
     },
     sendOutWait: function(time){
@@ -435,11 +436,12 @@
             };
 
 
-
+      $('#message-to-send').attr('disabled','disabled');
       setTimeout(function() {
         //
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
+        $('#message-to-send').removeAttr('disabled');
       }.bind(this), time);
 
     }
