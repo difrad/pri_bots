@@ -59,7 +59,7 @@
           //how are you doing -> spend free time
           case 0:
 
-            $('#message-to-send').disabled = true;
+            //$('#message-to-send').disabled = true;
            // $('#message-to-send').attr('readonly','readonly');
             //readonly="readonly"
 
@@ -416,7 +416,8 @@
         response: message,
         time: this.getCurrentTime()
       };
-      //$('#message-to-send').attr('disabled','disabled');
+      
+      $('#message-to-send').attr('readonly','readonly');
       console.log("MESSAGE START!!!!! diable!!")
       setTimeout(function() {
         //
@@ -430,7 +431,7 @@
         }
         this.scrollToBottom();
         console.log("End diable!!")
-        //$('#message-to-send').removeAttr('disabled');
+        $('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
     },
     sendOutWait: function(time){
@@ -441,7 +442,7 @@
             };
 
 
-      //$('#message-to-send').attr('disabled','disabled');
+     $('#message-to-send').attr('readonly','readonly');
       console.log("START!!!!! diable!!")
       setTimeout(function() {
         //
@@ -449,6 +450,7 @@
         this.scrollToBottom();
         console.log("End diable!!")
         //this.$textarea.removeAttr('disabled');
+        $('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
 
     }
