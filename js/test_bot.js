@@ -59,7 +59,7 @@
           //how are you doing -> spend free time
           case 0:
 
-            $('#message-to-send').attr('disabled','disabled');
+            $('#message-to-send').disabled = true;
             var message = nlp(this.messageToSend);
             var neg = message.verbs().isNegative().length;
             neg = neg + message.match('(no|nope|not|nopes|naw)').length;
@@ -91,7 +91,7 @@
             this.index++;
 
             console.log("OPEN NOW!");
-            $('#message-to-send').removeAttr('disabled');
+            //$('#message-to-send').removeAttr('disabled');
             break;
 
 
