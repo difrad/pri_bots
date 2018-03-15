@@ -60,7 +60,7 @@
           case 0:
 
             $('#message-to-send').disabled = true;
-            $('#message-to-send').attr('readonly','readonly');
+           // $('#message-to-send').attr('readonly','readonly');
             //readonly="readonly"
 
             var message = nlp(this.messageToSend);
