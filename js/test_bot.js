@@ -441,7 +441,8 @@
         //
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
-        $('#message-to-send').removeAttr('disabled');
+        console.log("End diable")
+        this.$textarea.removeAttr('disabled');
       }.bind(this), time);
 
     }
