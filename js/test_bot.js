@@ -414,6 +414,7 @@
         time: this.getCurrentTime()
       };
       $('#message-to-send').attr('disabled','disabled');
+      console.log("MESSAGE START!!!!! diable!!")
       setTimeout(function() {
         //
         if (more)
@@ -425,6 +426,7 @@
           $( "li" ).last().replaceWith(templateResponse(contextResponse));
         }
         this.scrollToBottom();
+        console.log("End diable!!")
         $('#message-to-send').removeAttr('disabled');
       }.bind(this), time);
     },
@@ -437,6 +439,7 @@
 
 
       $('#message-to-send').attr('disabled','disabled');
+      console.log("START!!!!! diable!!")
       setTimeout(function() {
         //
         this.$chatHistoryList.append(templateWait(contextWait));
