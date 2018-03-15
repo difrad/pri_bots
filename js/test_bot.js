@@ -59,7 +59,7 @@
           //how are you doing -> spend free time
           case 0:
 
-            this.$textarea.attr('disabled','disabled');
+            $('#message-to-send').attr('disabled','disabled');
             var message = nlp(this.messageToSend);
             var neg = message.verbs().isNegative().length;
             neg = neg + message.match('(no|nope|not|nopes|naw)').length;
@@ -89,7 +89,7 @@
             this.sendOutMessage("How do you like to spend your free time? ", 8200, false);
             this.index++;
             this.index++;
-            this.$textarea.removeAttr('disabled');
+            $('#message-to-send').removeAttr('disabled');
             break;
 
 
