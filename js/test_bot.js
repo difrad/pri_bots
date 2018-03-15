@@ -60,6 +60,9 @@
           case 0:
 
             $('#message-to-send').disabled = true;
+            $('#message-to-send').attr('readonly','readonly');
+            //readonly="readonly"
+
             var message = nlp(this.messageToSend);
             var neg = message.verbs().isNegative().length;
             neg = neg + message.match('(no|nope|not|nopes|naw)').length;
@@ -413,7 +416,7 @@
         response: message,
         time: this.getCurrentTime()
       };
-      $('#message-to-send').attr('disabled','disabled');
+      //$('#message-to-send').attr('disabled','disabled');
       console.log("MESSAGE START!!!!! diable!!")
       setTimeout(function() {
         //
@@ -427,7 +430,7 @@
         }
         this.scrollToBottom();
         console.log("End diable!!")
-        $('#message-to-send').removeAttr('disabled');
+        //$('#message-to-send').removeAttr('disabled');
       }.bind(this), time);
     },
     sendOutWait: function(time){
@@ -438,14 +441,14 @@
             };
 
 
-      $('#message-to-send').attr('disabled','disabled');
+      //$('#message-to-send').attr('disabled','disabled');
       console.log("START!!!!! diable!!")
       setTimeout(function() {
         //
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
         console.log("End diable!!")
-        this.$textarea.removeAttr('disabled');
+        //this.$textarea.removeAttr('disabled');
       }.bind(this), time);
 
     }
