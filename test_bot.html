@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="css/icomoon.css">
+
+  <!-- Simple Line Icons -->
+  <link rel="stylesheet" href="css/simple-line-icons.css">
+
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" href="css/style2.css">
+
+
+  <!-- Modernizr JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <script src="js/compromise.min.js"></script>
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+
+  </head>
+  <body>
+
+  <div style="background: #C5DDEB;">
+
+    <div class="chat-container clearfix">
+      <div class="chat">
+        <div class="chat-header clearfix">
+          <img src="images/person_bot.png" height="55" />
+
+          <div class="chat-about">
+            <div class="chat-with">Chat with Taylor</div>
+          </div>
+          <i class="fa fa-star"></i>
+        </div> <!-- end chat-header -->
+
+        <div class="chat-history">
+          <ul>
+            <li class="clearfix">
+
+            <li>
+              <div class="message-data">
+                <!-- <span class="message-data-name"><i class="fa fa-circle online"></i> Bob</span>
+                <span class="message-data-name"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" /> Taylor</span>
+                images/person_bot.png -->
+                <span class="message-data-name"><img src="images/person_bot.png" height="55" /> Taylor</span>
+                <span class="message-data-time">10:12 AM, Today</span> <!-- change to current date/time -->
+              </div>
+              <div class="message my-message">
+                Hello, my name is Taylor. How are you doing today?
+              </div>
+            </li>
+
+
+
+          </ul>
+
+        </div> <!-- end chat-history -->
+
+        <div class="chat-message clearfix">
+          <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+
+          <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-file-image-o"></i>
+
+          <button>Send</button>
+
+        </div> <!-- end chat-message -->
+
+      </div> <!-- end chat -->
+
+    </div> <!-- end container -->
+
+    <script id="message-template" type="text/x-handlebars-template">
+      <li class="clearfix">
+        <div class="message-data align-right">
+          <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
+          <span class="message-data-name" >You</span> <img src="images/user.png" height="55" />
+        </div>
+        <div class="message other-message float-right">
+          {{messageOutput}}
+        </div>
+      </li>
+    </script>
+
+    <script id="message-response-template" type="text/x-handlebars-template">
+      <li>
+        <div class="message-data">
+          <span class="message-data-name"><img src="images/person_bot.png" height="55" />  Taylor</span>
+          <span class="message-data-time">{{time}}, Today</span>
+        </div>
+        <div class="message my-message">
+          {{response}}
+        </div>
+      </li>
+    </script>
+
+    <script id="message-response-wait" type="text/x-handlebars-template">
+      <li>
+        <div class="message-data">
+          <span class="message-data-name"><img src="images/person_bot.png" height="55" />  Taylor</span>
+          <span class="message-data-time">{{time}}, Today</span>
+        </div>
+        <img src="images/load.svg" alt="avatar" height="60"/>
+      </li>
+    </script>
+
+  </div> <!-- end of chat div -->
+
+
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="js/jquery.waypoints.min.js"></script>
+
+
+  <!--  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script>
+
+  <script  src="js/test_bot.js"></script>
+
+  </body>
+</html>
