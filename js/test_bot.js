@@ -89,6 +89,8 @@
             this.sendOutMessage("How do you like to spend your free time? ", 8200, false);
             this.index++;
             this.index++;
+
+            console.log("OPEN NOW!");
             $('#message-to-send').removeAttr('disabled');
             break;
 
