@@ -37,6 +37,8 @@
   window.fakeProgress = setInterval(function() {
       $('#example').progress('increment');
       $('label.load').text( $('#example').progress('get value') );
+      $('#example')
+        .progress('set label', $('#example').progress('get value'));
       // stop incrementing when complete
       if($('#example').progress('is complete')) {
         clearInterval(window.fakeProgress)
