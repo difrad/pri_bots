@@ -34,8 +34,16 @@
 </body>
 <script>
 
+  window.fakeProgress = setInterval(function() {
+      $('#example').progress('increment');
+      $('label').text( $('#example').progress('get value') );
+      // stop incrementing when complete
+      if($('#example').progress('is complete')) {
+        clearInterval(window.fakeProgress)
+      }
+    }, 10);
 
-  $('ui indicating progress')
+  $('#example')
   .progress({
     duration : 200,
     total    : 20
