@@ -37,20 +37,25 @@
   window.fakeProgress = setInterval(function() {
       $('#example').progress('increment');
       $('label.load').text( $('#example').progress('get value') );
-      if ($('#example').progress('get value') == 100)
+      if ($('#example').progress('get value') <= 100)
       {
         $('#example')
         .progress('set label', "Uploaded to Data to Company")
       }
-      else if($('#example').progress('get value') == 200)
+      else if($('#example').progress('get value') <= 200)
       {
         $('#example')
-        .progress('set label', "Uploaded to Data to Company <br> Uploaded to Marketers")
+        .progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers")
       }
-      else if($('#example').progress('get value') == 295)
+      else if($('#example').progress('get value') <= 295)
       {
         $('#example')
-        .progress('set label', "Uploaded to Data to Company <br> Uploaded to Marketers <br> Uploaded to Database")
+        .progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers - Complete <br> Uploaded to Database")
+      }
+      else if($('#example').progress('get value') == 300)
+      {
+        $('#example')
+        .progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers - Complete <br> Uploaded to Database - Complete")
       }
       //$('#example')
         //.progress('set label', String($('#example').progress('get value')));
@@ -63,7 +68,7 @@
   $('#example')
   .progress({
     duration : 200,
-    total    : 10
+    //total    : 10
   })
 ;
     
