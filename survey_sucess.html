@@ -20,7 +20,7 @@
     <div class="ui vertically padded grid container">
     <div class="four wide column"></div>
     <div class="ten wide column">
-      <h2 id ='head'>Please wait while we upload your data</h2>
+      <h2 id ='head'>Please wait while your responses are being shared.</h2>
 
       <!--
       <div class="ui indicating progress" data-value="1" data-total="200" id="example">
@@ -42,18 +42,18 @@
 </body>
 <script>
 
-  $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading to Company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading to Third Party Advertisers</div></div></div>' );
+  $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with the company of the home assistant service</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with third-party affiliates and advertisers</div></div></div>' );
 
   setTimeout(function() {
         //
-        $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Uploaded to Company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading to Third Party Advertisers</div></div></div>' );
-      }.bind(this), 2000);
+        $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with the company of the home assistant service</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with third-party affiliates and advertisers</div></div></div>' );
+      }.bind(this), 2500);
 
   setTimeout(function() {
         //
-        $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Uploaded to Company</div></div></div><div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Uploading to Third Party Advertisers</div></div></div>' );
-        $('#head').text( "Thank you. The process is complete. Please continue taking the survey."  );
-      }.bind(this), 4000);
+        $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with the company of the home assistant service</div></div></div><div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with third-party affiliates and advertisers</div></div></div>' );
+        $('#head').text( "Thank you! Please continue taking the survey."  );
+      }.bind(this), 5000);
 
   /*
   window.fakeProgress = setInterval(function() {
