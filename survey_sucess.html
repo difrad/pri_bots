@@ -43,16 +43,17 @@
       if ($('#example').progress('get value') <= 100)
       {
         //$('#example').progress('set label', "Uploaded to Data to Company")
-        $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading Data to Company</div></div></div>' );
+        $( "#message" ).html( '<div class="ui  message"><div class="content"><div class="header">Uploading Data to Company</div></div></div>' );
       }
       else if($('#example').progress('get value') <= 200)
       {
         //$('#example').progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers")
-        $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div><p>Go to your <b>special offers</b> page to see now.</p></div> <br> <div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading Data to Marketers</div></div></div>' );
+        $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div> <br> <div class="ui message"><div class="content"><div class="header">Uploading Data to Marketers</div></div></div>' );
       }
       else if($('#example').progress('get value') <= 295)
       {
         //$('#example').progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers - Complete <br> Uploaded to Database")
+        $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div> <br> <div class="ui positive message"><<div class="content"><div class="header">Data Sucessfully sent to Company</div></div></div>' );
       }
       else if($('#example').progress('get value') == 300)
       {
