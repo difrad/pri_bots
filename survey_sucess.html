@@ -22,7 +22,7 @@
     <div class="ten wide column">
       <h2>Thank you. The conversation is complete. Please continue taking the survey</h2>
 
-      <div class="ui indicating progress" data-value="1" data-total="300" id="example">
+      <div class="ui indicating progress" data-value="1" data-total="200" id="example">
         <div class="bar">
           <div class="progress"></div>
         </div>
@@ -45,12 +45,12 @@
         //$('#example').progress('set label', "Uploaded to Data to Company")
         $( "#message" ).html( '<div class="ui  message"><div class="content"><div class="header">Uploading Data to Company</div></div></div> <div class="ui message"><div class="content"><div class="header">Uploading Data to Marketers</div></div></div>' );
       }
-      else if($('#example').progress('get value') <= 200)
+      else if($('#example').progress('get value') <= 199)
       {
         //$('#example').progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers")
         $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div>  <div class="ui message"><div class="content"><div class="header">Uploading Data to Marketers</div></div></div>' );
       }
-      else if($('#example').progress('get value') <= 300)
+      else if($('#example').progress('get value') == 200)
       {
         //$('#example').progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers - Complete <br> Uploaded to Database")
         $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div><div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div>' );
