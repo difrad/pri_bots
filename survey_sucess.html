@@ -22,12 +22,17 @@
     <div class="ten wide column">
       <h2 id ='head'>Please wait while we upload your data</h2>
 
+      <!--
       <div class="ui indicating progress" data-value="1" data-total="200" id="example">
         <div class="bar">
           <div class="progress"></div>
         </div>
         
       </div>
+      <div class="ui container" id="message">
+        <p></p>
+      </div> -->
+
       <div class="ui container" id="message">
         <p></p>
       </div>
@@ -37,6 +42,20 @@
 </body>
 <script>
 
+  $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading to Company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading to Third Party Advertisers</div></div></div>' );
+
+  setTimeout(function() {
+        //
+        $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Uploaded to Company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Uploading to Third Party Advertisers</div></div></div>' );
+      }.bind(this), 2000);
+
+  setTimeout(function() {
+        //
+        $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Uploaded to Company</div></div></div><div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Uploading to Third Party Advertisers</div></div></div>' );
+        $('#head').text( "Thank you. The process is complete. Please continue taking the survey."  );
+      }.bind(this), 4000);
+
+  /*
   window.fakeProgress = setInterval(function() {
       $('#example').progress('increment');
       $('label.load').text( $('#example').progress('get value') );
@@ -65,7 +84,7 @@
       if($('#example').progress('is complete')) {
         clearInterval(window.fakeProgress)
         $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div><div class="ui positive message"><div class="header">Data Sucessfully sent to Marketers</div></div>' );
-        $('#head').text( "Thank you. The process is complete. Please continue taking the survey"  );
+        $('#head').text( "Thank you. The process is complete. Please continue taking the survey."  );
       }
     }, 100);
 
@@ -75,6 +94,7 @@
     //total    : 10
   })
 ;
+*/
     
 </script>
 </html>
