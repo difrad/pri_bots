@@ -26,7 +26,7 @@
         <div class="bar">
           <div class="progress"></div>
         </div>
-        <div class="label">Loading Data</div>
+        <div class="label load">Loading Data</div>
       </div>
 
     </div>
@@ -36,12 +36,12 @@
 
   window.fakeProgress = setInterval(function() {
       $('#example').progress('increment');
-      $('label').text( $('#example').progress('get value') );
+      $('label.load').text( $('#example').progress('get value') );
       // stop incrementing when complete
       if($('#example').progress('is complete')) {
         clearInterval(window.fakeProgress)
       }
-    }, 10);
+    }, 100);
 
   $('#example')
   .progress({
