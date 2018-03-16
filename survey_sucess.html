@@ -20,8 +20,27 @@
     <div class="ui vertically padded grid container">
     <div class="four wide column"></div>
     <div class="ten wide column">
-    <h2>Thank you. The conversation is complete. Please continue taking the survey</h2>
+      <h2>Thank you. The conversation is complete. Please continue taking the survey</h2>
+
+      <div class="ui indicating progress" data-value="1" data-total="20" id="example">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">Loading Data</div>
+      </div>
+
     </div>
   </div>
 </body>
+<script>
+
+
+  $('ui indicating progress')
+  .progress({
+    duration : 200,
+    total    : 20
+  })
+;
+    
+</script>
 </html>
