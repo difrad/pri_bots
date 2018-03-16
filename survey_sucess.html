@@ -22,7 +22,7 @@
     <div class="ten wide column">
       <h2>Thank you. The conversation is complete. Please continue taking the survey</h2>
 
-      <div class="ui indicating progress" data-value="1" data-total="20" id="example">
+      <div class="ui indicating progress" data-value="1" data-total="300" id="example">
         <div class="bar">
           <div class="progress"></div>
         </div>
@@ -37,8 +37,23 @@
   window.fakeProgress = setInterval(function() {
       $('#example').progress('increment');
       $('label.load').text( $('#example').progress('get value') );
-      $('#example')
-        .progress('set label', String($('#example').progress('get value')));
+      if ($('#example').progress('get value') == 100)
+      {
+        $('#example')
+        .progress('set label', "Uploaded to Data to Company")
+      }
+      else if($('#example').progress('get value') == 200)
+      {
+        $('#example')
+        .progress('set label', "Uploaded to Data to Company <br> Uploaded to Marketers")
+      }
+      else if($('#example').progress('get value') == 295)
+      {
+        $('#example')
+        .progress('set label', "Uploaded to Data to Company <br> Uploaded to Marketers <br> Uploaded to Database")
+      }
+      //$('#example')
+        //.progress('set label', String($('#example').progress('get value')));
       // stop incrementing when complete
       if($('#example').progress('is complete')) {
         clearInterval(window.fakeProgress)
@@ -48,7 +63,7 @@
   $('#example')
   .progress({
     duration : 200,
-    total    : 20
+    total    : 10
   })
 ;
     
