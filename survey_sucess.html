@@ -53,7 +53,7 @@
       else if($('#example').progress('get value') == 200)
       {
         //$('#example').progress('set label', "Uploaded to Data to Company - Complete <br> Uploaded to Marketers - Complete <br> Uploaded to Database")
-        $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div><div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div>' );
+        $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div><div class="ui positive message"><div class="header">Data Sucessfully sent to Marketers</div></div>' );
       }
       else if($('#example').progress('get value') == 3000)
       {
@@ -64,6 +64,7 @@
       // stop incrementing when complete
       if($('#example').progress('is complete')) {
         clearInterval(window.fakeProgress)
+        $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div><div class="ui positive message"><div class="header">Data Sucessfully sent to Marketers</div></div>' );
       }
     }, 100);
 
