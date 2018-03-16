@@ -20,7 +20,7 @@
     <div class="ui vertically padded grid container">
     <div class="four wide column"></div>
     <div class="ten wide column">
-      <h2>Thank you. The conversation is complete. Please continue taking the survey</h2>
+      <h2 id ='head'>Please wait while we upload your data</h2>
 
       <div class="ui indicating progress" data-value="1" data-total="200" id="example">
         <div class="bar">
@@ -65,6 +65,7 @@
       if($('#example').progress('is complete')) {
         clearInterval(window.fakeProgress)
         $( "#message" ).html( '<div class="ui positive message"><div class="header">Data Sucessfully sent to Company</div></div><div class="ui positive message"><div class="header">Data Sucessfully sent to Marketers</div></div>' );
+        $('#head').text( "Thank you. The process is complete. Please continue taking the survey"  );
       }
     }, 100);
 
