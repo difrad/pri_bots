@@ -59,10 +59,6 @@
           //how are you doing -> spend free time
           case 0:
 
-            //$('#message-to-send').disabled = true;
-           // $('#message-to-send').attr('readonly','readonly');
-            //readonly="readonly"
-
             var message = nlp(this.messageToSend);
             var neg = message.verbs().isNegative().length;
             neg = neg + message.match('(no|nope|not|nopes|naw)').length;
@@ -208,145 +204,7 @@
             this.sendOutMessage("That's all I have now! Thank you. The conversation is complete. Please continue taking the survey.",2500,false);
 
 
-          //Tell me something your best friend does that annoys you?
-          /*
-          case 8:
-            this.sendOutWait();
-            this.sendOutMessage("Ok, anything else to add?", 1500);
-            this.index++;
-            break;
-          //yes/no on having more hobbies to list
-          case 9:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //lets continue
-            if (neg > pos && neg > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('Great!', 1500);
-              this.sendOutMessage(this.messageResponses[7], 3000, true); //Tell me about a stressful situation
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("Ok, so what else does your friend do that annoys you?", 1500);
-              this.index--;
-            }
-            break;
-
-          //Tell me about a stressful situation?
-          case 10:
-            this.sendOutWait();
-            this.sendOutMessage("Ok, anything else to add?", 1500);
-            this.index++;
-            break;
-          //yes/no on having more hobbies to list
-          case 11:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //lets continue
-            if (neg > pos && neg > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('Great!', 1500);
-              this.sendOutMessage(this.messageResponses[8], 3000, true); //Do you live with a partner
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("OK, so tell me more about your stressful situation.", 1500);
-              this.index--;
-            }
-            break;
-
-          //yes/no on having partner
-          case 12:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw|single)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|married|dating)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //Yes Partner
-            if (pos > neg && pos > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('That\'s great!', 1500);
-              this.sendOutMessage(this.messageResponses[9], 3000, true); //How often do you argue with your partner
-              this.index++;
-            }
-
-            //no partner/g2 amazon turk ID Q
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("No worries! I'm also single. Alexa never answers my calls.", 1500);
-              this.sendOutMessage("Anyway, almost done with these questions.", 3000, true);
-              this.sendOutMessage(this.messageResponses[10], 4500, true); //Mturk ID?
-              this.index = this.index + 3;
-            }
-            break;
-
-            //Tell me about a stressful situation?
-          case 13:
-            this.sendOutWait();
-            this.sendOutMessage("Ok, anything else to add?", 1500);
-            this.index++;
-            break;
-          //yes/no on having more parner issues to list
-          case 14:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //lets continue
-            if (neg > pos && neg > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('Ok', 1500);
-              this.sendOutMessage("Almost done with these questions.", 3000, true);
-              this.sendOutMessage(this.messageResponses[10], 4000, true); //Mturk ID?
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("OK, so tell me more.", 1500);
-              this.index--;
-            }
-            break;
-
-            //end of convo
-            case 15:
-              //capture mturk ID some way, record seperatly
-              this.sendOutWait();
-              this.sendOutMessage(this.messageResponses[11], 1500); //Survey Link?
-              //jQuery send out info to DB
-              this.index++;
-              break;
-            case 16:
-              this.sendOutWait();
-              this.sendOutMessage("That's all I have now. Be sure to do the survey and check back soon!", 1500);
-              */
+          
         }
       }
     },
@@ -393,8 +251,6 @@
         time: this.getCurrentTime()
       };
 
-      $('#message-to-send').attr('readonly','readonly');
-      console.log("MESSAGE START!!!!! diable!!")
       setTimeout(function() {
         //
         if (more)
@@ -406,8 +262,6 @@
           $( "li" ).last().replaceWith(templateResponse(contextResponse));
         }
         this.scrollToBottom();
-        console.log("End diable!!")
-        $('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
     },
     sendOutWait: function(time){
@@ -417,16 +271,10 @@
               time: this.getCurrentTime()
             };
 
-
-     $('#message-to-send').attr('readonly','readonly');
-      console.log("START!!!!! diable!!")
       setTimeout(function() {
         //
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
-        console.log("End diable!!")
-        //this.$textarea.removeAttr('disabled');
-        //$('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
 
     },
