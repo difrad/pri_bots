@@ -24,7 +24,7 @@
       this.render();
       $('.message-data-time-start').replaceWith( this.getCurrentTime() + ", Today" );
       this.data.convos = [];
-      this.data.botType = "bot";
+      this.data.botType = "BotNoShare";
       //this.getCurrentTime()
     },
     cacheDOM: function() {
@@ -54,151 +54,77 @@
 
         // responses
         switch (this.index) {
-          //What is your name??
-          // case 0:
-          //
-          //   /*var name = window.nlp(this.messageToSend);
-          //   if (name.match('#Person').found)
-          //   {
-          //     var mess = this.messageResponses[0] + name.match('#Person').out()
-          //     this.sendOutWait();
-          //     this.sendOutMessage(mess, 1500, false);
-          //     this.sendOutMessage(this.messageResponses[1], 3000, true);//Are you ready to get started?
-          //     this.index++;
-          //   }
-          //   else
-          //   {
-          //     this.sendOutWait();
-          //     this.sendOutMessage("Sorry I didn't catch your name. Can you try again?", 1500, false);
-          //   }*/
-          //   var message = nlp(this.messageToSend);
-          //   var neg = message.verbs().isNegative().length;
-          //   neg = neg + message.match('(no|nope|not|nopes|naw|bad|sad)').length;
-          //   var pos = message.verbs().isPositive().length;
-          //   pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
-          //   console.log("pos is "+pos+" and neg is "+neg);
-          //   /*
-          //   if (pos > neg && pos > 0)
-          //   {
-          //     this.sendOutWait();
-          //     //this.sendOutMessage(this.messageResponses[2], 1500, false);
-          //     this.sendOutMessage("Great to hear!", 2000); //What are your hobbies?
-          //     this.index++;
-          //   }
-          //
-          //   else
-          //   {
-          //     this.sendOutWait();
-          //     this.sendOutMessage("Sorry to hear that", 2000);
-          //     this.index++;
-          //   }*/
-          //   //
-          //   this.sendOutMessage("This is a walkthrough of the LiveWell services. You will be asked questions to improve the service to better help you.", 3500, true);
-          //   this.sendOutMessage("Are you ready to get started?", 6500, true);
-          //   this.index++;
-          //   break;
-
-
-            // break;
-
           //how feeling -> spend free time
           case 1:
-            // var message = nlp(this.messageToSend);
-            // var neg = message.verbs().isNegative().length;
-            // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            // var pos = message.verbs().isPositive().length;
-            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready)').length;
-            // console.log("case 1");
-            // console.log("pos is "+pos+" and neg is "+neg);
+            this.turnoff();
             this.sendOutMessage("Describe how you like to spend your free time.", 2000); //What are your hobbies?
-            this.index = this.index + 2;
+            this.turnon(2010);
+            this.index = 3;
             break;
-
-          //not called
-          // case 2:
-          //   //this.sendOutWait(10);
-          //   this.sendOutMessage("Anything else?", 1500);
-          //   this.index++;
-          //   break;
 
           //free time -> music
           case 3:
-            // var message = nlp(this.messageToSend);
-            // var neg = message.verbs().isNegative().length;
-            // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            // var pos = message.verbs().isPositive().length;
-            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            // console.log("pos is "+pos+" and neg is "+neg);
+            this.turnoff();
             this.sendOutMessage("Describe what kind of music and movies you like.", 2500, true); //like to do for fun?
+            this.turnon(2510);
             this.index++;
             break;
 
           //music and movies -> shopping
           case 4:
-            //this.sendOutWait(5);
-            //this.sendOutMessage('Those are great!', 2123);
-            //this.sendOutWait(2678);
+            this.turnoff();
             this.sendOutMessage("Describe what kinds of things you like to shop for online.", 2135);
+            this.turnon(2145);
             this.index++;
             break;
 
           //shopping -> 3 words
           case 5:
-            // var message = nlp(this.messageToSend);
-            // var neg = message.verbs().isNegative().length;
-            // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            // var pos = message.verbs().isPositive().length;
-            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            // console.log("pos is "+pos+" and neg is "+neg);
-
+            this.turnoff();
             this.sendOutMessage("Enter 3 words that you think best describe yourself.", 2500, true); //What 3 words do you think best describe you
-              //this.index++;
+            this.turnon(2510);
             this.index = 7;
             break;
 
           //3 words -> more detail
           case 7:
-            //this.sendOutWait(5);
-            //this.sendOutMessage('That\'s an interesting way to describe yourself.', 3500);
-            //this.sendOutWait(4172);
+          this.turnoff();
           this.sendOutMessage('Explain your choice of words above.', 1712);
+          this.turnon(1722);
           this.index++;
           break;
 
           //detail -> bed
           case 8:
-            //this.sendOutWait(5);
-            //this.sendOutMessage('Thanks for sharing!', 3500);
-            //this.sendOutWait(4172);
+            this.turnoff();
             this.sendOutMessage('Describe what time you usually go to bed and wake up.', 1712);
+            this.turnon(1722);
             this.index++;
             break;
 
           //bed -> stress
           case 9:
-            //this.sendOutWait(5);
-            //this.sendOutMessage('Cool!', 2121);
-            //this.sendOutWait(2789);
+            this.turnoff()
             this.sendOutMessage("Describe a recent thing that stressed you out.", 1821); //What 3 words do you think best describe you
+            this.turnon(1831)
             this.index++;
             break;
 
           //stress -> AMT ID
           case 10:
-            //this.sendOutWait(5);
-            //this.sendOutMessage('Thanks for sharing that with me.', 2121);
-            //this.sendOutWait(4889);
+            this.turnoff()
             this.sendOutMessage("Enter your Mechanical Turk ID Number.", 1821); //What 3 words do you think best describe you
+            this.turnon(1831);
             this.index++;
             break;
 
           //AMT ID -> end
           case 11:
-              //this.sendOutWait();
-              //this.sendOutMessage('Ok!', 2000);
+              this.turnoff();
               this.sendOutMessage("Thank you.", 2500);
               //this.sendOutWait(2000);
               this.sendOutMessage("Please continue taking the survey.",3800,true);
+              this.turnon(3810);
               this.index++;
               $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
                 data: JSON.stringify( this.data ),
@@ -209,7 +135,9 @@
           //repeating end
           case 12:
             //this.sendOutWait();
+            this.turnoff();
             this.sendOutMessage("Thank you. Please continue taking the survey.",2500);
+            this.turnon(2510);
 
         }
       }
@@ -288,6 +216,19 @@
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
       }.bind(this), time);
+    },
+    turnoff: function(){
+      console.log("TURN OFF");
+      $('#message-to-send').attr('readonly','readonly');
+    },
+    turnon: function(time){
+      
+
+      setTimeout(function() {
+        console.log("TURN ON");
+        $('#message-to-send').removeAttr('readonly');
+      }.bind(this), time);
+
     }
   };
 
