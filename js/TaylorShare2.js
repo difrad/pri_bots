@@ -24,7 +24,7 @@
       this.render();
       $('.message-data-time').replaceWith( this.getCurrentTime() + ", Today" );
       this.data.convos = [];
-      this.data.botType = "share";
+      this.data.botType = "TaylorShare2";
       var options = { weekday: "long", year: "numeric", month: "short",
         day: "numeric" };
       this.data.date = new Date().toLocaleTimeString("en-US", options);;
@@ -191,14 +191,14 @@
             this.sendOutWait(5);
             this.sendOutMessage('Great! Please wait while I share your responses.', 3100);
             this.sendOutWait(3500);
-            this.sendOutMessage("I have shared your responses with my company.",7000);
-            this.sendOutWait(7500);
-            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers",8730);
-            this.sendOutWait(9230);
-            this.sendOutMessage("Shared with affiliates and advertisers!",12300);
-            this.sendOutWait(12800);
-            this.sendOutMessage("Thank you! Please continue taking the survey.",14500);
-            this.turnon(14510);
+            this.sendOutMessage("I have shared your responses with my company.",9000);
+            this.sendOutWait(9500);
+            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers",11000);
+            this.sendOutWait(11500);
+            this.sendOutMessage("Shared with affiliates and advertisers!",18700);
+            this.sendOutWait(19300);
+            this.sendOutMessage("Thank you! Please continue taking the survey.",21300);
+            this.turnon(21310);
             this.index++;
 
             $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
