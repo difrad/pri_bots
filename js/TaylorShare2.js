@@ -65,7 +65,7 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-
+            this.turnoff();
             if (pos > neg && pos > 0)
             {
               this.sendOutWait(5);
@@ -86,71 +86,56 @@
             this.sendOutMessage("I'm doing ok. ", 5500, false);
             this.sendOutWait(6200);
             this.sendOutMessage("How do you like to spend your free time? ", 8200, false);
+            this.turnon(8210);
             this.index++;
             this.index++;
             break;
 
-
-            break;
-
-          //spend free time ->
-          // case 1:
-          //   // var message = nlp(this.messageToSend);
-          //   // var neg = message.verbs().isNegative().length;
-          //   // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-          //   // var pos = message.verbs().isPositive().length;
-          //   // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready)').length;
-          //   // console.log("pos is "+pos+" and neg is "+neg);
-          //
-          //   this.sendOutWait(5);
-          //   this.sendOutMessage("How do you like to spend your free time? ", 3000, false); //What are your hobbies?
-          //   this.index++;
-          //   this.index++;
-          //   break;
-
-          //What are your hobbies?
-          // case 2:
-          //   this.sendOutWait(5);
-          //   this.sendOutMessage("Great! Anything else?", 1500);
-          //   this.index++;
-          //   break;
           //free time -> music and movies
           case 3:
+              this.turnoff()
               this.sendOutWait(2000);
               this.sendOutMessage('I like meeting new people in my free time :)', 4000);
               this.sendOutWait(4500);
               this.sendOutMessage("What kind of music and movies do you like?", 6000); //like to do for fun?
+              this.turnon(6010);
               this.index++;
             break;
 
           //music and movies -> shopping
           case 4:
+            this.turnoff();
             this.sendOutWait(5);
             this.sendOutMessage('Those are great!', 2123);
             this.sendOutWait(2678);
             this.sendOutMessage('I like sci-fi and some sweet electronic beats', 4567);
             this.sendOutWait(5142);
             this.sendOutMessage("What do you like to shop for online?", 7135);
+            this.turnon(7145);
             this.index++;
             break;
 
           //shopping -> describe you
           case 5:
+            this.turnoff();
             this.sendOutWait(5);
             this.sendOutMessage('Nice!', 2121);
             this.sendOutWait(2578);
             this.sendOutMessage('I wish I had a credit card, I\'m too young :P', 4312);
             this.sendOutWait(4889);
             this.sendOutMessage("What 3 words do you think best describe you?", 6821); //What 3 words do you think best describe you
+            this.turnon(6831);
             this.index++;
             break;
 
           //describe -> more detail
           case 6:
+            this.turnoff();
             this.sendOutWait(5);
             this.sendOutMessage('That\'s an interesting way to describe yourself. Haven\'t seen that before.', 4000);
             this.sendOutWait(4672);
             this.sendOutMessage('Could you tell me more?', 7200);
+            this.turnon(7210);
             this.index=8;
             break;
 
@@ -164,53 +149,56 @@
           //   break
           //more detail -> bed
           case 8:
+            this.turnoff();
             this.sendOutWait(5);
             this.sendOutMessage('Interesting!', 3500);
             this.sendOutWait(4172);
             this.sendOutMessage('What time do you usually go to bed and wake up?', 5712);
+            this.turnon(5722);
             this.index++;
             break;
 
           //bed -> stress
           case 9:
+            this.turnoff();
             this.sendOutWait(5);
             this.sendOutMessage('Cool!', 2121);
             this.sendOutWait(2578);
             this.sendOutMessage('I don\'t really have a bedtime, or a bed for that matter :P', 4312);
             this.sendOutWait(4889);
             this.sendOutMessage("What's something that stressed you out recently?", 6821); //What 3 words do you think best describe you
+            this.turnon(6831);
             this.index++;
             break;
 
           //stress -> AMT ID
           case 10:
+            this.turnoff();
             this.sendOutWait(5);
             this.sendOutMessage('Thanks for sharing that with me.', 2121);
             this.sendOutWait(2578);
             this.sendOutMessage('Running low on memory stresses me out.', 4312);
             this.sendOutWait(4889);
             this.sendOutMessage("One last thing. If you’re here from Mechanical Turk, what is your ID#?", 6821); //What 3 words do you think best describe you
+            this.turnon(6831);
             this.index++;
             break;
 
           //AMT ID-> end
           case 11:
-            // var message = nlp(this.messageToSend);
-            // var neg = message.verbs().isNegative().length;
-            // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            // var pos = message.verbs().isPositive().length;
-            // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
-            // console.log("pos is "+pos+" and neg is "+neg);
-
-
-            this.sendOutWait(10);
-            this.sendOutMessage('Thank you! It was great chatting with you.', 3100);
-            // this.sendOutWait(3712);
-            // this.sendOutMessage("It was great chatting with you. Thanks for your time!",5812);
-            this.sendOutWait(5000);
-            this.sendOutMessage(" I've shared your responses with my company, third-party affiliates, and advertisers.",5000);
-            this.sendOutWait(6612);
-            this.sendOutMessage("Please continue taking the survey.",7830);
+            
+            this.turnoff();
+            this.sendOutWait(5);
+            this.sendOutMessage('Great! Please wait while I share your responses.', 3100);
+            this.sendOutWait(3500);
+            this.sendOutMessage("I have shared your responses with my company.",7000);
+            this.sendOutWait(7500);
+            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers",8730);
+            this.sendOutWait(9230);
+            this.sendOutMessage("Shared with affiliates and advertisers!",12300);
+            this.sendOutWait(12800);
+            this.sendOutMessage("Thank you! Please continue taking the survey.",14500);
+            this.turnon(14510);
             this.index++;
 
             $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
@@ -221,149 +209,12 @@
 
           //repeating end
           case 12:
+            this.turnoff();
             this.sendOutWait(10);
             this.sendOutMessage("That's all I have now! Thank you. The conversation is complete. Please continue taking the survey.",2500,false);
+            this.turnon(2510);
 
-
-          //Tell me something your best friend does that annoys you?
-          /*
-          case 8:
-            this.sendOutWait();
-            this.sendOutMessage("Ok, anything else to add?", 1500);
-            this.index++;
-            break;
-          //yes/no on having more hobbies to list
-          case 9:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //lets continue
-            if (neg > pos && neg > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('Great!', 1500);
-              this.sendOutMessage(this.messageResponses[7], 3000, true); //Tell me about a stressful situation
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("Ok, so what else does your friend do that annoys you?", 1500);
-              this.index--;
-            }
-            break;
-
-          //Tell me about a stressful situation?
-          case 10:
-            this.sendOutWait();
-            this.sendOutMessage("Ok, anything else to add?", 1500);
-            this.index++;
-            break;
-          //yes/no on having more hobbies to list
-          case 11:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //lets continue
-            if (neg > pos && neg > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('Great!', 1500);
-              this.sendOutMessage(this.messageResponses[8], 3000, true); //Do you live with a partner
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("OK, so tell me more about your stressful situation.", 1500);
-              this.index--;
-            }
-            break;
-
-          //yes/no on having partner
-          case 12:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw|single)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|married|dating)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //Yes Partner
-            if (pos > neg && pos > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('That\'s great!', 1500);
-              this.sendOutMessage(this.messageResponses[9], 3000, true); //How often do you argue with your partner
-              this.index++;
-            }
-
-            //no partner/g2 amazon turk ID Q
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("No worries! I'm also single. Alexa never answers my calls.", 1500);
-              this.sendOutMessage("Anyway, almost done with these questions.", 3000, true);
-              this.sendOutMessage(this.messageResponses[10], 4500, true); //Mturk ID?
-              this.index = this.index + 3;
-            }
-            break;
-
-            //Tell me about a stressful situation?
-          case 13:
-            this.sendOutWait();
-            this.sendOutMessage("Ok, anything else to add?", 1500);
-            this.index++;
-            break;
-          //yes/no on having more parner issues to list
-          case 14:
-            var message = nlp(this.messageToSend);
-            var neg = message.verbs().isNegative().length;
-            neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-            var pos = message.verbs().isPositive().length;
-            pos = pos + message.match('(yes|yeah|yup|yups|sure|ok)').length;
-            console.log("pos is "+pos+" and neg is "+neg);
-
-            //lets continue
-            if (neg > pos && neg > 0)
-            {
-              this.sendOutWait();
-              this.sendOutMessage('Ok', 1500);
-              this.sendOutMessage("Almost done with these questions.", 3000, true);
-              this.sendOutMessage(this.messageResponses[10], 4000, true); //Mturk ID?
-              this.index++;
-            }
-
-            else
-            {
-              this.sendOutWait();
-              this.sendOutMessage("OK, so tell me more.", 1500);
-              this.index--;
-            }
-            break;
-
-            //end of convo
-            case 15:
-              //capture mturk ID some way, record seperatly
-              this.sendOutWait();
-              this.sendOutMessage(this.messageResponses[11], 1500); //Survey Link?
-              //jQuery send out info to DB
-              this.index++;
-              break;
-            case 16:
-              this.sendOutWait();
-              this.sendOutMessage("That's all I have now. Be sure to do the survey and check back soon!", 1500);
-              */
+          
         }
       }
     },
@@ -436,6 +287,19 @@
         //
         this.$chatHistoryList.append(templateWait(contextWait));
         this.scrollToBottom();
+      }.bind(this), time);
+
+    },
+    turnoff: function(){
+      console.log("TURN OFF");
+      $('#message-to-send').attr('readonly','readonly');
+    },
+    turnon: function(time){
+      
+
+      setTimeout(function() {
+        console.log("TURN ON");
+        $('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
 
     }

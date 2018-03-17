@@ -283,9 +283,10 @@
       $('#message-to-send').attr('readonly','readonly');
     },
     turnon: function(time){
-      console.log("TURN ON");
+      
 
       setTimeout(function() {
+        console.log("TURN ON");
         $('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
 
