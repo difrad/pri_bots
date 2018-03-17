@@ -69,19 +69,19 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-            turnoff();
+            this.turnoff();
             if (pos > neg && pos > 0)
             {
               this.sendOutWait(5);
               //this.sendOutMessage(this.messageResponses[2], 1500, false);
               this.sendOutMessage("Great to hear!", 2500, false); //What are your hobbies?
-              this.index++;
+              
             }
             else
             {
               this.sendOutWait(5);
               this.sendOutMessage("Sorry to hear that", 2500, false);
-              this.index++;
+              
             }
             //
             //this.sendOutMessage("Now, I’ll be walking you through some of things I can help you with, and asking you some questions so that I know how to help you better", 3500, true);
@@ -90,21 +90,19 @@
             this.sendOutMessage("I'm doing ok. ", 5500, false);
             this.sendOutWait(6200);
             this.sendOutMessage("How do you like to spend your free time? ", 8200, false);
-            this.index++;
-            this.index++;
-
-            turnon(8210);
-            //$('#message-to-send').removeAttr('disabled');
+            this.turnon(8210);
+            
+            this.index=3
             break;
 
           //free time -> music and movies
           case 3:
-            turnoff();
+            this.turnoff();
             this.sendOutWait(2000);
             this.sendOutMessage('I like meeting new people in my free time :)', 4000);
             this.sendOutWait(4500);
             this.sendOutMessage("What kind of music and movies do you like?", 6000); //like to do for fun?
-            turnon(6010);
+            this.turnon(6010);
             this.index++;
             break;
 
