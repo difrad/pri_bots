@@ -213,8 +213,18 @@
                                     type: "POST",
                                     contentType: "application/json",
                                     success: function(json) {
-                               //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
-                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Your responses have been shared with the company of the home assistant service. Please continue taking the survey.</h2></div></div>" );
+                               
+                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'>  <h2 id ='head'>Please wait while your responses are being shared.</h2><div class='ui container' id='message'></div></div></div>" );
+
+                               $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with the company of the home assistant service</div></div></div>' );
+
+                              setTimeout(function() {
+                                    //
+                                    $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with the company of the home assistant service</div></div></div>' );
+                                  }.bind(this), 3500);
+
+
+
                             } } ); 
                         
                       },
@@ -228,64 +238,6 @@
                       }
                       });
         });
-
-    
-    /*
-    $("#post-btn").click(function(e){   
-      e.preventDefault();
-
-      $("#reg-form")
-      .form({
-        fields: {
-          how_today: 'empty',
-          free_time   : 'empty',
-          movies : 'empty',
-          words_1    : 'empty',
-          words_2    : 'empty',
-          words_3    : 'empty',
-          words_choice    : 'empty',
-          bed    : 'empty',
-          stress    : 'empty',
-          turk    : 'empty'
-        }
-      })
-    ;
-      $("#reg-form").form('validate form');
-    /*
-    $.post("https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX", $("#reg-form").serialize(), function(data) {
-        alert(data);
-    });
-    
-    var
-      $form = $('.get.example form'),
-      // get all values
-      allFields = $form.form('get values')
-    ;
-
-    
-
-    
-    
-    console.log("cats is "+ $('#reg-form').form('is valid') );
-    
-    if( $('#reg-form').form('is valid')) {
-    // form is valid (both email and name)
-      console.log("FORM IS VALID!!!!")
-      var $form = $("#reg-form");
-      var data = getFormData($form);
-
-      $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
-                  //data: JSON.stringify( $("#reg-form").serializeArray() ),
-                  data: JSON.stringify(data),
-                  type: "POST",
-                  contentType: "application/json",
-                  success: function(json) {
-             //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
-             $( "body" ).replaceWith( "<div class='ui vertically padded grid container'> <div class='four wide column'></div> <div class='ten wide column'> <h2>Thank you. The conversation is complete. Please continue taking the survey</h2></div></div>" );
-          } } ); 
-  }///IF VALID
-});
-*/
 </script>
 
 </html>
