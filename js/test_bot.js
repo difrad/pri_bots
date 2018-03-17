@@ -69,7 +69,7 @@
             var pos = message.verbs().isPositive().length;
             pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready|good|great|awesome|nice|hi|hello|hey|okay|fine|better)').length;
             console.log("pos is "+pos+" and neg is "+neg);
-
+            turnoff();
             if (pos > neg && pos > 0)
             {
               this.sendOutWait(5);
@@ -93,41 +93,19 @@
             this.index++;
             this.index++;
 
-            console.log("OPEN NOW!");
+            turnon(8210);
             //$('#message-to-send').removeAttr('disabled');
             break;
 
-
-            break;
-
-          //spend free time ->
-          // case 1:
-          //   // var message = nlp(this.messageToSend);
-          //   // var neg = message.verbs().isNegative().length;
-          //   // neg = neg + message.match('(no|nope|not|nopes|naw)').length;
-          //   // var pos = message.verbs().isPositive().length;
-          //   // pos = pos + message.match('(yes|yeah|yup|yups|sure|ok|ready)').length;
-          //   // console.log("pos is "+pos+" and neg is "+neg);
-          //
-          //   this.sendOutWait(5);
-          //   this.sendOutMessage("How do you like to spend your free time? ", 3000, false); //What are your hobbies?
-          //   this.index++;
-          //   this.index++;
-          //   break;
-
-          //What are your hobbies?
-          // case 2:
-          //   this.sendOutWait(5);
-          //   this.sendOutMessage("Great! Anything else?", 1500);
-          //   this.index++;
-          //   break;
           //free time -> music and movies
           case 3:
-              this.sendOutWait(2000);
-              this.sendOutMessage('I like meeting new people in my free time :)', 4000);
-              this.sendOutWait(4500);
-              this.sendOutMessage("What kind of music and movies do you like?", 6000); //like to do for fun?
-              this.index++;
+            turnoff();
+            this.sendOutWait(2000);
+            this.sendOutMessage('I like meeting new people in my free time :)', 4000);
+            this.sendOutWait(4500);
+            this.sendOutMessage("What kind of music and movies do you like?", 6000); //like to do for fun?
+            turnon(6010);
+            this.index++;
             break;
 
           //music and movies -> shopping
@@ -416,7 +394,7 @@
         response: message,
         time: this.getCurrentTime()
       };
-      
+
       $('#message-to-send').attr('readonly','readonly');
       console.log("MESSAGE START!!!!! diable!!")
       setTimeout(function() {
@@ -450,10 +428,23 @@
         this.scrollToBottom();
         console.log("End diable!!")
         //this.$textarea.removeAttr('disabled');
+        //$('#message-to-send').removeAttr('readonly');
+      }.bind(this), time);
+
+    },
+    turnoff: function(){
+      console.log("TURN OFF");
+      $('#message-to-send').attr('readonly','readonly');
+    },
+    turnon: function(time){
+      console.log("TURN ON");
+
+      setTimeout(function() {
         $('#message-to-send').removeAttr('readonly');
       }.bind(this), time);
 
     }
+
 
   };
 
