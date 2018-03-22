@@ -242,12 +242,14 @@
     sendOutMessage: function(message, time, more=false){
       var templateResponse = Handlebars.compile( $("#message-response-template").html());
 
+      /*
       var options = { weekday: "long", year: "numeric", month: "short",
         day: "numeric" };
       var new_message = new Object();
       new_message.message = message;
       //new_message.time = new Date().toLocaleTimeString("en-US", options);
       this.data.convos.push(new_message);
+      */
 
       ////////Wait and Send real message
       var contextResponse = {
