@@ -148,7 +148,7 @@
     addMessage: function() {
       var options = { weekday: "long", year: "numeric", month: "short",
         day: "numeric" };
-      this.messageToSend = this.$textarea.val();
+      this.messageToSend = this.$textarea.val()+"&";
       var new_message = new Object();
       new_message.message = this.messageToSend;
      //new_message.time = new  Date().toLocaleTimeString("en-US", options);
