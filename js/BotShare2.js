@@ -85,7 +85,7 @@
           //shopping -> 3 words
           case 5:
             this.turnoff();
-            this.sendOutMessage("Enter 3 words that you think best describe yourself.", 2500, true); //What 3 words do you think best describe you
+            this.sendOutMessage("Describe your personality.", 2500, true); //What 3 words do you think best describe you
             this.turnon(2510);
             this.index = 7;
             break;

@@ -127,7 +127,7 @@
             this.sendOutWait(2578);
             this.sendOutMessage('I wish I had a credit card, I\'m too young :P', 4312);
             this.sendOutWait(4889);
-            this.sendOutMessage("What 3 words do you think best describe you?", 6821); //What 3 words do you think best describe you
+            this.sendOutMessage("How would you describe your personality?", 6821); //What 3 words do you think best describe you
             this.turnon(6831);
             this.index++;
             break;
