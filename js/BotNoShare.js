@@ -93,7 +93,7 @@
           //3 words -> more detail
           case 7:
           this.turnoff();
-          this.sendOutMessage('Explain your choice of words above.', 1712);
+          this.sendOutMessage('Explain your previous answer.', 1712);
           this.turnon(1722);
           this.index++;
           break;
