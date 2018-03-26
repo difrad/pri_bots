@@ -196,15 +196,21 @@
                                     contentType: "application/json",
                                     success: function(json) {
                                
-                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container test'> <div class='four wide column'></div> <div class='ten wide column'>  <h2 id ='head'>Please wait while your responses are being shared.</h2><div class='ui container' id='message'></div></div></div>" );
+                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container test'> <div class='four wide column'></div> <div class='ten wide column'>  <h3 id ='head'>Please wait while your responses are being shared.</h3><div class='ui container' id='message'></div></div></div>" );
 
                                $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with my company</div></div></div>' );
 
                               setTimeout(function() {
                                     //
                                     $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared my company</div></div></div>' );
-                                    $('#head').text( "Thank you! Please continue taking the survey."  );
+                                    //$('#head').text( "Thank you! Please continue taking the survey."  );
                                   }.bind(this), 11500);
+
+                              setTimeout(function() {
+                                    //
+                                    
+                                    $('#head').text( "Thank you! Please continue taking the survey."  );
+                                  }.bind(this), 14500);
 
 
 
