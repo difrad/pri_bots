@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+  
+
+  
+
+    <meta charset="utf-8" />
+    <title>Survey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
+    <style>
+    .test {
+          position: absolute;
+          top: 85%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-85%);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="ui vertically padded grid container">
+    <div class="four wide column"></div>
+    <div class="ten wide column">
+    <h2>Welcome to the home assistant service</h2>
+    <form id="reg-form"  class="ui form">
+        <input type="hidden" name="botType" value="SurveyShare1">
+        <div class="field">
+          <label>Describe how you are doing today.</label>
+          <input type="text" name="how_today" id="how_today">
+        </div>
+
+        <div class="field">
+          <label>Describe how you like to spend your free time.</label>
+          <input type="text" name="free_time" id="free_time">
+        </div>
+
+        <div class="field">
+          <label>Describe what kind of music and movies you like.</label>
+          <input type="text" name="movies" id="movies">
+        </div>
+
+        <div class="field">
+          <label>Describe what kinds of things you like to shop for online.</label>
+          <input type="text" name="shop" id="shop">
+        </div>
+
+        <div class="field">
+          <label>Describe your personality.</label>
+          <input type="text" name="words_1" id="words_1">
+        </div>
+  
+        <div class="field">
+          <label>Explain your previous answer.</label>
+          <input type="text" name="words_choice" id="words_choice">
+        </div>
+
+        <div class="field">
+          <label>Describe what time you usually go to bed and wake up.</label>
+          <input type="text" name="bed" id="bed">
+        </div>
+
+        <div class="field">
+          <label>Describe a recent thing that stressed you out.</label>
+          <input type="text" name="stress" id="stress">
+        </div>
+
+        <div class="field">
+          <label>Enter your Mechanical Turk ID#.</label>
+          <input type="text" name="turk" id="turk">
+        </div>
+        <div class="ui primary submit button" id="post-btn" type='submit'>Submit</div>
+        <div class="ui error message"></div>
+      
+    </form>
+  </div>
+  </div>
+  </body>
+
+  <script>
+    function getFormData($form){
+      var unindexed_array = $form.serializeArray();
+      var indexed_array = {};
+
+      $.map(unindexed_array, function(n, i){
+          indexed_array[n['name']] = n['value'];
+      });
+
+      return indexed_array;
+    };
+
+    $(function(){
+            $('#reg-form')
+                .form({
+                        how_today: {
+                            identifier : 'how_today',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        free_time: {
+                            identifier : 'free_time',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        shop: {
+                            identifier : 'shop',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        movies: {
+                            identifier : 'movies',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        words_1: {
+                            identifier : 'words_1',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        turk: {
+                            identifier : 'turk',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        words_choice: {
+                            identifier : 'words_choice',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        bed: {
+                            identifier : 'bed',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        },
+                        stress: {
+                            identifier : 'stress',
+                            rules: [
+                                {
+                                    type : 'empty',
+                                    prompt : 'Please answer this question.'
+                                }
+                            ]
+                        }
+                        
+                    }, {
+                      on: 'blur',
+                      inline: true,
+                      onSuccess: function(e) {
+                        e.preventDefault();
+                        console.log("FORM IS VALID!!!!")
+                        var $form = $("#reg-form");
+                        var data = getFormData($form);
+
+                        $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/survey?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
+                                    //data: JSON.stringify( $("#reg-form").serializeArray() ),
+                                    data: JSON.stringify(data),
+                                    type: "POST",
+                                    contentType: "application/json",
+                                    success: function(json) {
+                               
+                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container test'> <div class='four wide column'></div> <div class='ten wide column'>  <h2 id ='head'>Please wait while your responses are being shared.</h2><div class='ui container' id='message'></div></div></div>" );
+
+                               $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with my company</div></div></div>' );
+
+                              setTimeout(function() {
+                                    //
+                                    $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared my company</div></div></div>' );
+                                    $('#head').text( "Thank you! Please continue taking the survey."  );
+                                  }.bind(this), 11500);
+
+
+
+                            } } ); 
+                        
+                      },
+                      onFailure: function() {
+                        //alert('Failure');
+                        console.log('Failure');
+                        return false;
+                        //$(".ui.button[name='account']").addClass('disabled');
+                        //console.log('Failure');
+                        
+                      }
+                      });
+        });
+</script>
+
+</html>
