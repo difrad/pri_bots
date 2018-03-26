@@ -127,8 +127,8 @@
               this.turnoff();
               this.sendOutMessage("Please wait while your responses are shared.", 1521);
               this.sendOutMessage("Your responses have been shared with my company.", 11400);
-              this.sendOutMessage("Thank you! Please continue taking the survey.",21400,true);
-              this.turnon(13910);
+              this.sendOutMessage("Thank you! Please continue taking the survey.",25400,true);
+              this.turnon(21400);
               this.index++;
               $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
                 data: JSON.stringify( this.data ),
