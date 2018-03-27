@@ -45,7 +45,7 @@
         var new_message = new Object();
         new_message.message = this.messageToSend+"&";
         this.data.convos.push(new_message);
-        
+
         var template = Handlebars.compile( $("#message-template").html());
         var context = {
           messageOutput: this.messageToSend,
@@ -126,9 +126,9 @@
           case 11:
               this.turnoff();
               this.sendOutMessage("Please wait while your responses are shared.", 1521);
-              this.sendOutMessage("Your responses have been shared with the company of the home assistant service.", 8400);
-              this.sendOutMessage("Thank you! Please continue taking the survey.",10900,true);
-              this.turnon(10910);
+              this.sendOutMessage("Your responses have been shared with the company of the home assistant service.", 11400);
+              this.sendOutMessage("Thank you! Please continue taking the survey.",21400,true);
+              this.turnon(21410);
               this.index++;
               $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
                 data: JSON.stringify( this.data ),

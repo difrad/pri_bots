@@ -126,11 +126,11 @@
           case 11:
               this.turnoff();
               this.sendOutMessage("Please wait while your responses are shared.", 1521);
-              this.sendOutMessage("Your responses have been shared with the company of the home assistant service.", 8400);
-              this.sendOutMessage("Now please wait while your responses are shared with third-party affiliates and advertisers.", 10200);
-              this.sendOutMessage("Shared with affiliates and advertisers!", 16600);
-              this.sendOutMessage("Thank you! Please continue taking the survey.",18700,true);
-              this.turnon(18710);
+              this.sendOutMessage("Your responses have been shared with my company.", 11400);
+              this.sendOutMessage("Now please wait while your responses are shared with third-party affiliates and advertisers.", 13400);
+              this.sendOutMessage("Shared with affiliates and advertisers!", 22600);
+              this.sendOutMessage("Thank you! Please continue taking the survey.",27600,true);
+              this.turnon(27610);
               this.index++;
               $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
                 data: JSON.stringify( this.data ),

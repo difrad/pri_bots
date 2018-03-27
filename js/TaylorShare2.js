@@ -47,7 +47,7 @@
         var new_message = new Object();
         new_message.message = this.messageToSend+"&";
         this.data.convos.push(new_message);
-        
+
         var template = Handlebars.compile( $("#message-template").html());
         var context = {
           messageOutput: this.messageToSend,
@@ -195,14 +195,14 @@
             this.sendOutWait(5);
             this.sendOutMessage('Great! Please wait while I share your responses.', 3100);
             this.sendOutWait(3500);
-            this.sendOutMessage("I have shared your responses with my company.",9000);
-            this.sendOutWait(9500);
-            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers",11000);
-            this.sendOutWait(11500);
-            this.sendOutMessage("Shared with affiliates and advertisers!",18700);
-            this.sendOutWait(19300);
-            this.sendOutMessage("Thank you! Please continue taking the survey.",21300);
-            this.turnon(21310);
+            this.sendOutMessage("I have shared your responses with my company.",11400);
+            this.sendOutWait(11900);
+            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers",13400);
+            this.sendOutWait(13900);
+            this.sendOutMessage("Shared with affiliates and advertisers!",22600);
+            this.sendOutWait(23000);
+            this.sendOutMessage("Thank you! Please continue taking the survey.",27600);
+            this.turnon(27610);
             this.index++;
 
             $.ajax( { url: "https://api.mlab.com/api/1/databases/bots/collections/cons?apiKey=a4thkqnabYToz4TqxrG7RI8WNtG3IDJX",
