@@ -125,10 +125,10 @@
           //AMT ID -> end
           case 11:
               this.turnoff();
-              this.sendOutMessage("Please wait while your responses are shared.", 1521);
-              this.sendOutMessage("Your responses have been shared with my company.", 11400);
-              this.sendOutMessage("Now please wait while your responses are shared with third-party affiliates and advertisers.", 13400);
-              this.sendOutMessage("Shared with affiliates and advertisers!", 22600);
+              this.sendOutMessage("Please wait while I share your responses.", 1521);
+              this.sendOutMessage("I have shared your responses with my company.", 11400);
+              this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers.", 13400);
+              this.sendOutMessage("I have shared your responses with third-party affiliates and advertisers!", 22600);
               this.sendOutMessage("Thank you! Please continue taking the survey.",27600,true);
               this.turnon(27610);
               this.index++;

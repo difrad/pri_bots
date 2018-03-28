@@ -197,9 +197,9 @@
             this.sendOutWait(3500);
             this.sendOutMessage("I have shared your responses with my company.",11400);
             this.sendOutWait(11900);
-            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers",13400);
+            this.sendOutMessage("Now please wait while I share your responses with third-party affiliates and advertisers.",13400);
             this.sendOutWait(13900);
-            this.sendOutMessage("Shared with affiliates and advertisers!",22600);
+            this.sendOutMessage("I have shared your responses with third-party affiliates and advertisers!",22600);
             this.sendOutWait(23000);
             this.sendOutMessage("Thank you! Please continue taking the survey.",27600);
             this.turnon(27610);

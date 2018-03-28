@@ -198,18 +198,18 @@
                                     contentType: "application/json",
                                     success: function(json) {
                                //window.location.href = "http://difranzo.com/pri_bots/survey_sucess.html";
-                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container test'> <div class='four wide column'></div> <div class='ten wide column' id ='ten'>  <p id ='head'>Please wait while your responses are being shared.</p><div class='ui container' id='message'></div></div></div>" );
+                               $( "body" ).replaceWith( "<div class='ui vertically padded grid container test'> <div class='four wide column'></div> <div class='ten wide column' id ='ten'>  <p id ='head'>Please wait while I share your responses.</p><div class='ui container' id='message'></div></div></div>" );
 
-                               $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with my company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with third-party affiliates and advertisers</div></div></div>' );
+                               $( "#message" ).html( '<div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">I am sharing your responses with my company.</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">I am sharing your responses with third-party affiliates and advertisers</div></div></div>' );
 
                               setTimeout(function() {
                                     //
-                                    $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with my company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">Your responses are being shared with third-party affiliates and advertisers</div></div></div>' );
+                                    $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">I have shared your responses with my company</div></div></div><div class="ui icon message"><i class="notched circle loading icon"></i><div class="content"><div class="header">I am sharing your responses with third-party affiliates and advertisers</div></div></div>' );
                                   }.bind(this), 11500);
 
                               setTimeout(function() {
                                     //
-                                    $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with my company</div></div></div><div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">Your responses have been shared with third-party affiliates and advertisers</div></div></div>' );
+                                    $( "#message" ).html( '<div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">I have shared your responses with my company</div></div></div><div class="ui positive icon message"><i class="check circle icon"></i><div class="content"><div class="header">I have shared your responses with third-party affiliates and advertisers</div></div></div>' );
                                     //$('#head').text( "Thank you! Please continue taking the survey."  );
                                   }.bind(this), 17800);
 
